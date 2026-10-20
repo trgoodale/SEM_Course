@@ -1,0 +1,93 @@
+# Week 2: Using the Amos program {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 2, pp. 16–68, worked through with Amos open (about 2 hours, practical). Pages 33–39, 51–52 and 61–62 describe Tables View, which this course does not use; skip them
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file
+
+App
+: Identification and degrees of freedom
+
+Task style
+: Worked example: reproduce, then change one thing and predict the result
+
+:::
+
+## By the end of this week you can
+
+- Draw a model in Amos Graphics and link it to a data file.
+- Set the Analysis Properties you will use routinely.
+- Find χ², degrees of freedom and parameter estimates in the output.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. Why does a regression model have 0 degrees of freedom? (Week 0)
+2. Name the two ways to set a latent variable's scale.
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. It estimates as many parameters as there are variances and covariances, so it reproduces the data exactly.
+2. Fix a loading to 1, or fix the factor variance to 1.
+
+</details>
+
+## This week in brief
+
+This week is about the mechanics of Amos: drawing a model, linking it to data, choosing analysis options and finding your way around the output. Byrne's screenshots come from Amos 23; menus in later versions are very similar, and the [Amos output guide](../course/amos-output.qmd) lists where everything is.
+
+## In the session
+
+- Drawing tools, naming variables, and linking the diagram to a data file.
+- Analysis Properties: the options you will switch on routinely.
+- A tour of the output, using the Amos output guide.
+
+## After the session
+
+Work through the core reading with Amos open, reproducing each step we went through in the session. Download Byrne's data files from the [Routledge page](https://www.routledge.com/9781138797031).
+
+## Your task this week
+
+1. Reproduce the chapter's examples.
+2. Draw the two-factor CFA from Week 1 (stress and support items) in Amos and run it on the clean Student Life Survey file.
+3. Find χ², df and the standardised loadings. Check Amos's df against your Week 1 count ("Notes for Model").
+4. If you left it in Week 0, draw the R6 mediation model now and compare its estimates with your PROCESS results.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/identification/index.html" title="Identification and degrees of freedom (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/identification/index.html">Open the Identification and degrees of freedom on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+**Reference for the rest of the course:** [Where to find it in Amos](../course/amos-output.qmd).
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Where in the output do you find the degrees of freedom?
+2. Which Analysis Properties options will you switch on by default, and why?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. Notes for Model, under "Computation of degrees of freedom": number of distinct sample moments minus number of distinct parameters to be estimated.
+2. Standardised estimates (to interpret loadings and paths), squared multiple correlations (variance explained in each item or outcome) and modification indices (to diagnose misfit). Tests for normality and outliers when screening.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **If the interface is confusing:** James Gaskin's video "Basic Analysis in AMOS and SPSS", linked from the [StatWiki home page](https://statwiki.gaskination.com/).
+- **An alternative walkthrough:** @collier2020, with many screenshots.

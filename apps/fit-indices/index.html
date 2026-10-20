@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fit index explorer · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-03.html" data-book-link>SEM Week 3</a> · <a href="../../sem/week-15.html" data-book-link>Week 15</a> · <a href="../../sem/week-17.html" data-book-link>Week 17</a></p>
+    <h1>Fit index explorer</h1>
+    <p class="lead">Enter the χ² values Amos reports for your model and for its independence (baseline) model. See how the common fit indices are calculated, and how sample size and degrees of freedom affect them.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Your model</h2>
+      <div id="preset"></div>
+      <div id="inputs"></div>
+      <p class="small">In Amos output, the baseline values are in the <em>Independence model</em> row of the Model Fit tables.</p>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="res-h">
+        <h2 id="res-h">Fit indices</h2>
+        <div id="error" class="error-text" role="alert"></div>
+        <div id="stats"></div>
+        <div id="table"></div>
+        <p class="small">Benchmarks are the commonly cited values of Hu and Bentler (1999). Treat them as rough guides, not pass marks (Marsh et al., 2004). Amos does not print the SRMR by default; it needs the residuals, not just χ².</p>
+      </section>
+      <details>
+        <summary>Formulas, with your numbers</summary>
+        <div id="formulas"></div>
+      </details>
+    </div>
+  </div>
+
+  <section aria-labelledby="n-h" style="margin-top:1.5rem">
+    <h2 id="n-h">Why χ² rejects almost every model in large samples</h2>
+    <div class="layout">
+      <div class="panel">
+        <p>Suppose the model is slightly wrong in the population, by an amount measured by the population RMSEA. How likely is the χ² test to reject it as N grows?</p>
+        <div id="n-controls"></div>
+      </div>
+      <div class="stack">
+        <figure class="chart">
+          <div id="n-chart"></div>
+          <figcaption>Probability that the χ² test rejects the model (p &lt; .05) at each sample size, for the chosen amount of population misfit and the df of your model.</figcaption>
+        </figure>
+        <div id="n-table"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Keep χ² and df fixed and double N. Which indices change and which do not?</li>
+      <li>Why can a model with very few degrees of freedom have a large RMSEA even when its χ² test is not significant?</li>
+      <li>Your model's χ² is significant with N = 800, but RMSEA = .04 and CFI = .97. How would you describe its fit, and which references would you cite?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Calculations follow Amos's definitions (n = N − 1). The RMSEA confidence interval uses the noncentral χ² distribution.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

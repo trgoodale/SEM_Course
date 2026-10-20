@@ -1,0 +1,104 @@
+# R6: Mediation and causal thinking {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @field2024, the moderation and mediation chapter: the section on mediation (about 45 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file: `support`, `stress`, `wellbeing`
+
+App
+: Bootstrapping an indirect effect
+
+Task style
+: Worked example: reproduce, then change one thing and predict the result
+
+:::
+
+## By the end of this week you can
+
+- Specify the a, b, c′ and indirect paths of a mediation model.
+- Estimate an indirect effect with a bootstrap confidence interval.
+- State the causal assumptions a mediation analysis needs.
+- Draw a mediation model as a path diagram.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What does centring change in a moderated regression?
+2. What does the F test for the change in R² compare? (R3)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. The meaning (and values) of the lower-order coefficients and the intercept; not the interaction or R².
+2. The two nested models: whether the predictors added in the second block explain more variance than you would expect by chance.
+
+</details>
+
+## This week in brief
+
+Mediation is a path model: X affects M (path a), M affects Y (path b), and X may also affect Y directly (c′). The indirect effect a × b is best tested with a bootstrap confidence interval. Mediation claims are causal claims, and with cross-sectional data they rest on assumptions the data cannot check.
+
+## The model as a path diagram
+
+Mediation is the first model in the course with more than one outcome: M is predicted by X, and Y is predicted by X and M. In regression you fit it as two separate equations; later you will fit it as one model.
+
+```{=html}
+<figure class="path-diagram-figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 240" role="img" aria-labelledby="d-r6a-t d-r6a-d" class="path-diagram" style="max-width:520px;width:100%;height:auto;display:block;margin:0 auto"><title id="d-r6a-t">Simple mediation as a path diagram</title><desc id="d-r6a-d">X points to M (path a), M points to Y (path b), and X also points directly to Y (path c prime). M and Y each have an error term. The indirect effect is a times b.</desc><defs><marker id="d-r6a-an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-line, currentColor)"/></marker><marker id="d-r6a-ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-emph, #b3470b)"/></marker></defs><line x1="100" y1="160.5" x2="224" y2="80.1" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6a-an)"/><line x1="285" y1="79.5" x2="409" y2="159.9" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6a-an)"/><line x1="100" y1="180" x2="409" y2="180" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6a-an)"/><line x1="327.9" y1="35.7" x2="286" y2="49.7" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6a-an)"/><line x1="482.8" y1="133.3" x2="461.1" y2="157" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6a-an)"/><rect x="42" y="160" width="56" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="70" y="185.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">X</text><rect x="227" y="40" width="56" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="255" y="65.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">M</text><rect x="412" y="160" width="56" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="440" y="185.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Y</text><circle cx="345" cy="30" r="16" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="345" y="34.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><circle cx="495" cy="120" r="16" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="495" y="124.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><text x="168.5" y="134.9" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">a</text><text x="340.5" y="134.2" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">b</text><text x="254.5" y="198.5" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">c′</text><text x="255" y="228" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;">indirect effect = a × b  ·  direct effect = c′  ·  total effect c = c′ + a × b</text></svg><figcaption>Simple mediation. The indirect effect of X on Y through M is a × b.</figcaption></figure>
+```
+
+## In the session
+
+- Mediation as two regressions, and as one PROCESS model (model 4).
+- Why a × b is not normally distributed, using the bootstrap app.
+- What has to be true for a mediation result to mean what it seems to mean.
+
+## After the session
+
+Read the core reading. Then read the first two pages of @rohrer2018 (open access) on why causal assumptions matter.
+
+## Your task this week
+
+1. **Does stress link support to wellbeing?** Fit the two regressions: `stress` on `support`; `wellbeing` on `support` and `stress`. Write down a, b and c′, and compute a × b.
+2. Run PROCESS model 4 (X = support, M = stress, Y = wellbeing) with 5,000 bootstrap samples. Check that its indirect effect matches your a × b, and report the bootstrap confidence interval.
+3. Draw the model with your estimates on the arrows.
+4. Write a paragraph on the causal assumptions this analysis needs, given that the survey was answered at one time point.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/bootstrap/index.html" title="Bootstrapping an indirect effect (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/bootstrap/index.html">Open the Bootstrapping an indirect effect on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Write out the indirect, direct and total effects for your model in terms of a, b and c′.
+2. Why use a bootstrap confidence interval for the indirect effect?
+3. What causal assumptions does this mediation analysis make?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. Indirect = a × b (about 0.10 here); direct = c′; total = c = c′ + a × b. The total effect is what you get by regressing wellbeing on support alone.
+2. The sampling distribution of a × b is usually skewed, so a symmetric normal-theory interval (the Sobel test) is inaccurate. The bootstrap builds the distribution from the data.
+3. That support affects stress and stress affects wellbeing (not the reverse); that there are no unmeasured common causes of support and stress, or of stress and wellbeing; and that the measures are reliable. With data from one time point, the ordering is an assumption, not a finding.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **If mediation is new to you:** @hayes2009 explains why the bootstrap replaced older approaches; Kenny's [mediation](https://davidakenny.net/cm/mediate.htm) page covers the history.
+- **For depth:** @hayes2022; @rohrer2018 in full.
+
+When you can tick every item on the [readiness checklist](readiness.qmd), move on to [Week 0](../sem/week-00.qmd).

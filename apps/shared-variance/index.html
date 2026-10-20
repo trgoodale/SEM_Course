@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shared-variance explorer · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../regression/r2-multiple.html" data-book-link>R2: Multiple regression</a></p>
+    <h1>Shared-variance explorer</h1>
+    <p class="lead">Set the three correlations among an outcome Y and two predictors, X1 and X2. See how the standardised coefficients and the variance each predictor explains change when the predictors overlap.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Correlations</h2>
+      <div id="controls"></div>
+      <fieldset>
+        <legend>Try a scenario</legend>
+        <div class="btn-row" id="presets"></div>
+      </fieldset>
+    </div>
+    <div class="stack">
+      <div id="invalid" class="callout bad" role="alert" hidden></div>
+      <figure class="chart"><div id="diagram" class="diagram-box"></div><figcaption>The model as a path diagram, with standardised coefficients. The curved two-headed arrow is the correlation between the predictors; e is the error term.</figcaption></figure>
+      <section class="panel" aria-labelledby="coef-h">
+        <h2 id="coef-h">Regression of Y on X1 and X2</h2>
+        <div id="stats"></div>
+        <div id="coef-table"></div>
+        <p id="note"></p>
+      </section>
+      <figure class="chart">
+        <div id="chart"></div>
+        <figcaption>How the variance of Y explained by the model (R²) splits into a part unique to X1 (X1 only), a part unique to X2 (X2 only) and a shared part. A negative shared part signals suppression.</figcaption>
+      </figure>
+      <details>
+        <summary>Formulas</summary>
+        <div id="formulas"></div>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Set r(X1, X2) to 0. Why do the standardised coefficients now equal the simple correlations with Y?</li>
+      <li>Raise r(X1, X2) while keeping the correlations with Y fixed. What happens to each β, to the unique variance and to the VIF?</li>
+      <li>Try the suppression scenario. How can a predictor that is uncorrelated with Y still improve prediction?</li>
+      <li>Each structural equation in SEM is a multiple regression. What does this app suggest about interpreting a path coefficient when its predictor correlates with other predictors?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. All quantities are computed from the correlation matrix you set.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

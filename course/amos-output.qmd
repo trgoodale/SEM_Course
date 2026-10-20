@@ -1,0 +1,90 @@
+# Where to find it in Amos {.unnumbered}
+
+A one-page reference for the options and output you will use most. Keep it open while you work. Menu names and messages were checked in Amos 32; older versions put things in the same places, though a label may differ slightly.
+
+## Before you run: Analysis Properties
+
+Open **View › Analysis Properties** (or the toolbar button with the abacus icon).
+
+| Tab | Option | Switch on when | First used |
+|:--|:--|:--|:--|
+| Output | Minimization history | On by default; leave it on. It helps diagnose a model that will not converge | — |
+| Output | Standardized estimates | Always | [Week 0](../sem/week-00.qmd) |
+| Output | Squared multiple correlations | Always | [Week 0](../sem/week-00.qmd) |
+| Output | Sample moments, Implied moments | When you want to compare observed and model-implied covariances | [Week 1](../sem/week-01.qmd) |
+| Output | Residual moments | When diagnosing local misfit | [Week 4](../sem/week-04.qmd) |
+| Output | Modification indices (the threshold defaults to 4; raising it to about 10 shortens the list) | When diagnosing misfit | [Week 4](../sem/week-04.qmd) |
+| Output | Tests for normality and outliers | Data screening | [Week 8](../sem/week-08.qmd) |
+| Output | Indirect, direct & total effects | Any model with mediation | [Week 11](../sem/week-11.qmd) |
+| Estimation | Estimate means and intercepts | Missing data (FIML), latent means, growth curves | [Week 9](../sem/week-09.qmd) |
+| Bootstrap | Perform bootstrap (e.g. 2000 samples) | Non-normal data; indirect effects | [Week 8](../sem/week-08.qmd) |
+| Bootstrap | Percentile / Bias-corrected confidence intervals. **The confidence level defaults to 90: change it to 95** | With the bootstrap | [Week 8](../sem/week-08.qmd) |
+| Bootstrap | Bollen–Stine bootstrap | A bootstrap p value for the overall χ² | [Week 8](../sem/week-08.qmd) |
+
+::: {.callout-important}
+Modification indices, tests for normality and the bootstrap all need **complete data**. If your file has missing values, Amos asks you to tick *Estimate means and intercepts* and then refuses these options. Work on a complete-case copy for screening and diagnostics, and use FIML on the full file for the final estimates ([Week 9](../sem/week-09.qmd)).
+:::
+
+## After you run: the output viewer
+
+Open **View › Text Output**. The panel on the left lists the sections.
+
+| You want | Where it is |
+|:--|:--|
+| Sample size, and how variables were classified | **Variable Summary**, **Parameter Summary** |
+| Degrees of freedom, and how they were calculated | **Notes for Model**: "Computation of degrees of freedom" |
+| Whether the model converged, or warnings about inadmissible solutions | **Notes for Model** ("Minimum was achieved") and **Notes for Group** |
+| Unstandardised loadings and paths, with SE, C.R. and p | **Estimates › Scalars › Regression Weights** (clicking **Estimates** shows all the tables below on one page) |
+| Standardised loadings and paths | **Estimates › Standardized Regression Weights** |
+| Covariances and correlations between factors or errors | **Estimates › Covariances**, **Correlations** |
+| Error and factor variances (look for negative values) | **Estimates › Variances** |
+| R² for each item or outcome | **Estimates › Squared Multiple Correlations** |
+| Indirect and total effects | **Estimates › Matrices**: Total Effects, Indirect Effects (and their standardised versions) |
+| Bootstrap standard errors and confidence intervals | Select an estimate table, then **Bootstrap Confidence** in the panel below the section list |
+| χ², df, p | **Model Fit › CMIN** (the "Default model" row) |
+| CFI, TLI | **Model Fit › Baseline Comparisons** (TLI is labelled "TLI rho2") |
+| RMSEA, its 90% CI and PCLOSE | **Model Fit › RMSEA** (columns LO 90, HI 90, PCLOSE) |
+| AIC, BIC for non-nested comparisons | **Model Fit › AIC** (AIC, BCC, BIC and CAIC in one table) |
+| Modification indices | **Modification Indices**: Covariances, Regression Weights. A covariance between an item's error and a factor (for example `e_WB5r <--> STR`) points to a possible cross-loading |
+| Skewness, kurtosis, Mardia's coefficient | **Assessment of normality** (multivariate kurtosis in the last row, with its critical ratio) |
+| Possible outliers | **Observations farthest from the centroid (Mahalanobis distance)** |
+| Comparison of nested multigroup models | **Model Comparison** (Δχ², Δdf and p for each pair) |
+
+**SRMR** is not in the text output. Use **Plugins › Standardized RMR**, keep its window open, then run the model again.
+
+## Other useful plugins
+
+The **Plugins** menu also has **Growth Curve Model**, which draws the intercept and slope factors for you (useful for the [optional growth-curve topic](../sem/optional-growth.qmd)), and **Name Unobserved Variables**, which names every error term in one go.
+
+## Typing a model instead of drawing it
+
+Amos 32 has a **Syntax** tab at the bottom of the drawing area. A model typed there is drawn automatically when you switch back to **Path diagram**. Drawing is still the best way to learn, but for a large model, such as the five-factor CFA, typing is quicker and less error-prone. The R2 regression is:
+
+```
+wellbeing = stress + support + (1) e1
+stress <> support
+```
+
+and a factor with its items starts like this:
+
+```
+STR1 = (1) STR + (1) e_STR1
+STR2 = STR + (1) e_STR2
+```
+
+`=` gives an equation, `(1)` fixes a coefficient to 1, `<>` adds a covariance, and any name not in the data file becomes an unobserved variable. The automatic layout of a large model is untidy, so you may want to drag the variables into place before you print it.
+
+## Multigroup models
+
+- Name the groups in **Analyze › Manage Groups**, and point each one at its subset with **File › Data Files › Grouping Variable / Group Value**.
+- **Analyze › Multiple-Group Analysis** creates the usual nested series (measurement weights, intercepts, structural weights, …) automatically. Check that the constraints it adds are the ones you intend. In [Week 13](../sem/week-13.qmd) you will set them by hand first, so you know what it is doing.
+- The diagram shows one group at a time; switch with the group list on the left of the drawing area.
+
+## Common error messages
+
+| Message (as Amos 32 words it) | Where it appears | Usual cause |
+|:--|:--|:--|
+| "The model is probably unidentified. In order to achieve identifiability, it will probably be necessary to impose 1 additional constraint." | **Notes for Model** in the text output (not a pop-up) | A latent variable has no scale (no loading fixed to 1), or part of the model has more unknowns than knowns |
+| "The variable, WB5r, is represented by a rectangle in the path diagram, but it is not an observed variable." | Pop-up | A typo, a name that differs from the data file, or the wrong data file |
+| "In order to analyse data with missing observations, you must explicitly estimate means and intercepts." | Pop-up | Missing data in the file; see the box above |
+| A warning about a negative variance (this one was not reproduced when the other messages were checked, so its exact wording is not given) | **Notes for Model**; the value also shows in the **Variances** table | A Heywood case: an error variance below zero. See [Heywood cases](../going-further/heywood.qmd) |

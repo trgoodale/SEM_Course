@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latent growth curve sandbox · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/optional-growth.html" data-book-link>Optional topic: growth curves</a></p>
+    <h1>Latent growth curve sandbox</h1>
+    <p class="lead">In a latent growth model, an intercept factor and a slope factor describe each person's trajectory. Set their means, variances and covariance, choose the time codes (the fixed slope loadings), and see the trajectories and the means and variances the model implies at each wave.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout wide-controls">
+    <div class="panel">
+      <h2>Growth factors</h2>
+      <div id="controls"></div>
+      <fieldset>
+        <legend>Time coding (slope loadings)</legend>
+        <div id="coding"></div>
+      </fieldset>
+      <div class="btn-row" id="buttons"></div>
+    </div>
+    <div class="stack">
+      <figure class="chart">
+        <div id="chart"></div>
+        <div id="legend"></div>
+        <figcaption>Simulated individual trajectories (thin lines) and the model-implied mean trajectory (thick line).</figcaption>
+      </figure>
+      <section class="panel" aria-labelledby="imp-h">
+        <h2 id="imp-h">Implied means and variances by wave</h2>
+        <div id="table"></div>
+        <p id="note"></p>
+      </section>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Change the time coding so that 0 is the last wave. What does the intercept now represent, and why do its mean and its covariance with the slope change?</li>
+      <li>Free the loading for wave 3 (set it to something other than 2). What kind of change over time does this allow, and how would you interpret it?</li>
+      <li>Why do the implied variances change over time when the slope has variance? What would they look like if the slope variance were 0?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Linear growth with time-invariant residual variance; trajectories are simulated.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

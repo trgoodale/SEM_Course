@@ -1,0 +1,115 @@
+# Week 11: A full latent variable model {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 6, pp. 185–226 (about 2 hours)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file
+
+Apps
+: Path-tracing playground; Bootstrapping an indirect effect
+
+Task style
+: Application: apply the technique to the Student Life Survey (or your own data) with a checklist
+
+:::
+
+## By the end of this week you can
+
+- Specify a structural model on top of a measurement model (the two-step approach).
+- Interpret structural paths and R² for latent outcomes.
+- Estimate indirect effects with bootstrap confidence intervals in Amos.
+- Decompose effects using the tracing rules.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What is an indirect effect, and why test it with a bootstrap?
+2. When is ML acceptable for five-point items?
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. a × b; its sampling distribution is skewed, so a normal-theory test is inaccurate.
+2. Usually when items are not badly skewed; with five or more categories the bias is small.
+
+</details>
+
+## This week in brief
+
+A full SEM combines the measurement model with structural paths among latent variables. The two-step approach tests the measurement model first, then the structural model, so you know whether misfit comes from measurement or from structure. Because the paths link latent variables, they are not weakened by measurement error.
+
+## The model as a path diagram
+
+```{=html}
+<figure class="path-diagram-figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" role="img" aria-labelledby="d-semfull-t d-semfull-d" class="path-diagram" style="max-width:620px;width:100%;height:auto;display:block;margin:0 auto"><title id="d-semfull-t">A structural model for the Student Life Survey</title><desc id="d-semfull-d">Five latent variables drawn as ovals. Support and Self-efficacy correlate, and both predict Stress. Support and Stress predict Wellbeing. Self-efficacy, Stress and Wellbeing predict Engagement. Stress, Wellbeing and Engagement each have a disturbance. Measurement parts (items and errors) are left out for clarity.</desc><defs><marker id="d-semfull-an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-line, currentColor)"/></marker><marker id="d-semfull-ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-emph, #b3470b)"/></marker></defs><path d="M68,84.4 Q36,150 67.5,214.4" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-start="url(#d-semfull-an)" marker-end="url(#d-semfull-an)"/><line x1="119.8" y1="77.9" x2="240.9" y2="132.4" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="122.8" y1="220.8" x2="240.9" y2="167.6" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="137" y1="60" x2="407" y2="60" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="317" y1="132.5" x2="428.6" y2="79.6" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="317" y1="167.5" x2="427.3" y2="219.8" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="147" y1="240" x2="402" y2="240" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="470" y1="85" x2="470" y2="214" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="280" y1="109" x2="280" y2="124" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="571" y1="60" x2="533" y2="60" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><line x1="571" y1="240" x2="538" y2="240" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-semfull-an)"/><ellipse cx="80" cy="60" rx="55" ry="23" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="80" y="65.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Support</text><ellipse cx="80" cy="240" rx="65" ry="23" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="80" y="245.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Self-efficacy</text><ellipse cx="280" cy="150" rx="50" ry="23" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="280" y="155.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Stress</text><ellipse cx="470" cy="60" rx="60" ry="23" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="470" y="65.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Wellbeing</text><ellipse cx="470" cy="240" rx="65" ry="23" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="470" y="245.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Engagement</text><circle cx="280" cy="95" r="12" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="280" y="99.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">d</text><circle cx="585" cy="60" r="12" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="585" y="64.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">d</text><circle cx="585" cy="240" r="12" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="585" y="244.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">d</text><text x="310" y="292" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:12px;">Each oval is measured by its items, as in the measurement model (not drawn).</text></svg><figcaption>A hypothesised structural model for the Student Life Survey. The measurement parts are left out of the drawing but are part of the model.</figcaption></figure>
+```
+
+## In the session
+
+- Specifying structural paths and disturbances.
+- The two-step approach in practice.
+- Direct, indirect and total effects; requesting indirect effects and bootstrap intervals in Amos.
+
+## After the session
+
+Read the core reading with these questions in mind:
+
+- How does Byrne form the indicators for each construct, and why does she run confirmatory factor analyses before the full model (pp. 187–196)?
+- Across Models 2 to 7 (pp. 203–211), which paths does she add or remove, and on what grounds?
+- What does she mean by the issue of model parsimony (p. 208)?
+
+The chapter includes long stretches of Amos output. Read the text around each table closely and skim the tables themselves; you will produce your own in the task. The section on Tables View (pp. 219–220) can be skipped.
+
+## Your task this week
+
+1. Fit the structural model in the diagram, on top of your final measurement model. Compare its fit with the measurement model's.
+2. **Predict first:** will the support → stress → wellbeing indirect effect be larger or smaller than your R6 regression estimate? Why?
+3. Request indirect, direct and total effects and 2,000 bootstrap samples (bias-corrected or percentile intervals; change the confidence level from Amos's default of 90 to 95). Report the indirect effect with its interval.
+4. Optional, if you have time: look at the modification indices for the structural part. Is any omitted path suggested, and is it defensible?
+
+::: {.callout-note title="Before next week's session"}
+Week 12 has no new material, so prepare for it during this week. Reread your SEM log. Prepare a 10-minute walk-through of your screening, measurement model and structural model.
+:::
+
+## Interactive apps
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/path-tracing/index.html" title="Path-tracing playground (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/path-tracing/index.html">Open the Path-tracing playground on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+Also useful this week: the [Bootstrapping an indirect effect](../apps/bootstrap/index.html).
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Why test the measurement model before the structural model?
+2. Why might the latent indirect effect differ from the R6 regression estimate?
+3. What assumptions do you need before reading a structural path causally?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. If the structural model fits poorly you need to know whether the problem is in measurement or in structure. Establishing the measurement model first separates the two (Anderson & Gerbing, 1988).
+2. Two things change at once. Latent variables remove measurement error, which strengthens paths: stress → wellbeing grows from about −.46 to about −.56 (standardised). But efficacy now also predicts stress, so support → stress shrinks from about −.23 to about −.16. In the Student Life Survey the two roughly cancel: the standardised indirect effect is about .09, against .10 in R6. Whether an estimate grows or shrinks depends on what else is in the model, not only on measurement error.
+3. Correct direction, no omitted common causes, correct functional form, and, with cross-sectional data, a theory that justifies the ordering.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Going further:** [equivalent models](../going-further/equivalent-models.qmd), for alternative arrangements of the arrows that fit equally well.
+- **The two-step approach:** @anderson1988.
+- **What SEM can and cannot say about causation:** @bollen2013.
+- **Indirect effects:** @preacher2008; Kenny's [mediation](https://davidakenny.net/cm/mediate.htm) page.
+- **Amos steps:** [StatWiki: Causal models](https://statwiki.gaskination.com/index.php?title=Causal_Models) and the [plugins guide](https://statwiki.gaskination.com/index.php?title=Plugins).

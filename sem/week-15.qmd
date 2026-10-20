@@ -1,0 +1,102 @@
+# Week 15: Comparing structural paths across groups {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 9, pp. 293–310 (about 90 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file
+
+Apps
+: χ² difference test; Fit index explorer
+
+Task style
+: Application: apply the technique to the Student Life Survey (or your own data) with a checklist
+
+:::
+
+## By the end of this week you can
+
+- Test whether a structural path differs between groups.
+- Relate a multigroup comparison to a group × predictor interaction in regression.
+- Explain the idea of cross-validation.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. In R5, what did the stress × year interaction test?
+2. Why might a latent mean difference differ from an observed one?
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Whether the slope of stress on engagement differed between year groups.
+2. Non-invariant items shift observed scores.
+
+</details>
+
+## This week in brief
+
+Multigroup analysis can also test whether *structural* paths differ between groups: moderation by a group variable, now among latent variables. Byrne also uses cross-validation: testing a model developed in one sample on another, which guards against the capitalisation on chance you saw in Week 4.
+
+## In the session
+
+- Constraining a structural path to equality across groups and testing it with Δχ².
+- Looking back to R5 and R3: the same question asked with latent variables and nested models.
+
+## After the session
+
+Read the core reading with these questions in mind:
+
+- Why does Byrne split her data into a calibration sample and a validation sample (pp. 293–296)?
+- How does Amos's automated multigroup analysis set up the equality constraints across the two samples (pp. 303–305)?
+- What does she conclude about the causal structure, and why does testing it in a second sample protect against capitalising on chance?
+
+Byrne's two groups are a calibration sample and a validation sample, not two different kinds of people. The machinery is the same as for your task, which compares first-year and later-year students.
+
+## Your task this week
+
+1. In your full structural model (Week 11) with the partial-invariance measurement model, constrain the stress → engagement path to be equal in the two year groups. Test the constraint with Δχ².
+2. Compare your conclusion with your R5 regression result. Do they agree? The latent model removes measurement error but also controls efficacy and wellbeing, and estimates more parameters in each group: which way might each of those push the result?
+3. Optional: split the sample at random into two halves and check whether your final model holds in both.
+
+::: {.callout-note title="Before next week's session"}
+Week 16 has no new material, so prepare for it during this week. Make sure every section of your draft exists, even in rough form: screening and missing data, measurement model, structural model, group comparisons. Polishing comes in Week 16, using the rubric.
+:::
+
+## Interactive apps
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/chi-square-difference/index.html" title="χ² difference test (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/chi-square-difference/index.html">Open the χ² difference test on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+Also useful this week: the [Fit index explorer](../apps/fit-indices/index.html).
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. How is testing equal paths across groups related to the X × W interaction in R5?
+2. What does cross-validation protect against?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. Both ask whether the effect of one variable depends on group. The regression adds a product term; the multigroup model estimates the path in each group and tests whether constraining them to be equal worsens fit.
+2. Capitalising on chance: a model tuned to one sample may not hold in another.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Cross-validation:** @cudeck1983.
+- **Amos steps and a plugin for pairwise comparisons:** [StatWiki: Multi-group](https://statwiki.gaskination.com/index.php?title=Causal_Models).
+- **Optional check:** reproduce one model in lavaan [@rosseel2012].

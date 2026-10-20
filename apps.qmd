@@ -1,0 +1,43 @@
+# Interactive apps {.unnumbered}
+
+Each app opens on its own page and works on a computer, tablet or phone. They are also embedded in the weeks where they are used. Each starts with a short guided tour that asks you to predict what will happen; you can skip it and explore freely. All data are simulated in your browser; nothing is uploaded.
+
+## Regression
+
+```{=html}
+<ul class="app-gallery">
+  <li><h3><a href="apps/least-squares/index.html">Least-squares line</a></h3><p>Fit a line by eye and compare it with the least-squares line.</p><p class="small">Week R1</p></li>
+  <li><h3><a href="apps/shared-variance/index.html">Shared-variance explorer</a></h3><p>How overlapping predictors share explained variance; suppression.</p><p class="small">Week R2</p></li>
+  <li><h3><a href="apps/nested-models/index.html">Nested regression models</a></h3><p>Two nested models side by side, and the F test for the change in R².</p><p class="small">Week R3</p></li>
+  <li><h3><a href="apps/residual-diagnostics/index.html">Residual diagnostics gallery</a></h3><p>See, then spot, non-linearity, heteroscedasticity, skew and influential cases.</p><p class="small">Week R4</p></li>
+  <li><h3><a href="apps/interaction/index.html">Interaction plotter</a></h3><p>Simple slopes, Johnson–Neyman regions and the effect of centring.</p><p class="small">Week R5</p></li>
+</ul>
+```
+
+## SEM
+
+```{=html}
+<ul class="app-gallery">
+  <li><h3><a href="apps/attenuation/index.html">Attenuation simulator</a></h3><p>How measurement error weakens slopes and correlations.</p><p class="small">Week 0</p></li>
+  <li><h3><a href="apps/identification/index.html">Identification and degrees of freedom</a></h3><p>Count knowns and unknowns for CFA and path models.</p><p class="small">Weeks 1, 2 and 7</p></li>
+  <li><h3><a href="apps/path-tracing/index.html">Path-tracing playground</a></h3><p>Decompose implied correlations into direct, indirect and spurious parts.</p><p class="small">Weeks 1 and 11</p></li>
+  <li><h3><a href="apps/fit-indices/index.html">Fit index explorer</a></h3><p>RMSEA, CFI and TLI from χ², and why χ² rejects in large samples.</p><p class="small">Weeks 3, 15 and 17</p></li>
+  <li><h3><a href="apps/heywood/index.html">Heywood case explorer</a></h3><p>How three item correlations fix a factor's loadings, and when an error variance goes negative.</p><p class="small">Week 4 and Going further</p></li>
+  <li><h3><a href="apps/modification-indices/index.html">Residuals and modification indices</a></h3><p>Find a hidden misspecification, then test whether your changes replicate.</p><p class="small">Weeks 4 and 5</p></li>
+  <li><h3><a href="apps/reliability-validity/index.html">Reliability and validity calculator</a></h3><p>CR, AVE, Fornell–Larcker and HTMT from your Amos output.</p><p class="small">Weeks 6 and 17</p></li>
+  <li><h3><a href="apps/bootstrap/index.html">Bootstrapping an indirect effect</a></h3><p>Normal-theory versus bootstrap intervals for a × b.</p><p class="small">Weeks R6, 8 and 11</p></li>
+  <li><h3><a href="apps/missing-data/index.html">Missing-data simulator</a></h3><p>Listwise deletion, mean imputation and FIML under MCAR, MAR and MNAR.</p><p class="small">Week 9</p></li>
+  <li><h3><a href="apps/ordinal/index.html">Ordinal items and thresholds</a></h3><p>Pearson versus polychoric correlations for Likert-type items.</p><p class="small">Week 10</p></li>
+  <li><h3><a href="apps/chi-square-difference/index.html">χ² difference test</a></h3><p>Test constraints between nested SEM models, and compare with the R3 F test.</p><p class="small">Weeks 13 and 15</p></li>
+  <li><h3><a href="apps/invariance/index.html">Invariance ladder</a></h3><p>Configural, metric and scalar invariance, and biased mean comparisons.</p><p class="small">Weeks 13 and 14</p></li>
+</ul>
+```
+
+## Optional topics
+
+```{=html}
+<ul class="app-gallery">
+  <li><h3><a href="apps/mtmm/index.html">Multitrait–multimethod matrix explorer</a></h3><p>Trait and method variance, with Campbell–Fiske checks.</p><p class="small">Optional topic: MTMM</p></li>
+  <li><h3><a href="apps/growth-curves/index.html">Latent growth curve sandbox</a></h3><p>Intercept and slope factors, time coding and implied moments.</p><p class="small">Optional topic: growth curves</p></li>
+</ul>
+```

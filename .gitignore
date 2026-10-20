@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+/.quarto/
+/_book/
+*_files/
+
+**/*.quarto_ipynb
+
+# Tutor-only material (answer key, data generator)
+private/

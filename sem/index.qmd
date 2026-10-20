@@ -1,0 +1,39 @@
+# SEM with Amos {.unnumbered}
+
+Eighteen weekly sessions take you through @byrne2016, plus two optional topics. The order is not quite the book's. Data screening, non-normality and missing data (Byrne's chapters 12 and 13) come before the full structural model, so you can check your own data properly before you model it. Weeks 12 and 16 have no new content: they are for consolidation, a checkpoint and writing.
+
+| Week | Byrne | Topic | App |
+|:--|:--|:--|:--|
+| [0](week-00.qmd) | — | From regression to SEM | Attenuation simulator |
+| [1](week-01.qmd) | 1 | SEM basics | Identification and df; Path tracing |
+| [2](week-02.qmd) | 2 | Using the Amos program | Identification and df |
+| [3](week-03.qmd) | 3 | CFA: estimation and fit | Fit index explorer |
+| [4](week-04.qmd) | 3 | CFA: residuals and modification indices | Residuals and MIs |
+| [5](week-05.qmd) | 4 | CFA of a measurement scale | Residuals and MIs |
+| [6](week-06.qmd) | — | Reliability and validity | Reliability and validity |
+| [7](week-07.qmd) | 5 | Second-order CFA; checkpoint 1 | Identification and df |
+| [8](week-08.qmd) | 12 | Data screening, non-normality and the bootstrap | Bootstrap |
+| [9](week-09.qmd) | 13 | Missing data | Missing-data simulator |
+| [10](week-10.qmd) | 5 | Ordinal items | Ordinal thresholds |
+| [11](week-11.qmd) | 6 | A full latent variable model | Path tracing; Bootstrap |
+| [12](week-12.qmd) | — | Consolidation; checkpoint 2 | — |
+| [13](week-13.qmd) | 7 | Measurement invariance | Invariance ladder; χ² difference |
+| [14](week-14.qmd) | 8 | Latent means | Invariance ladder |
+| [15](week-15.qmd) | 9 | Comparing structural paths across groups | χ² difference; Fit indices |
+| [16](week-16.qmd) | — | Consolidation and capstone planning; checkpoint 3 | — |
+| [17](week-17.qmd) | — | Capstone | Fit indices; Reliability and validity |
+
+**Optional topics**, for when your project needs them: [the MTMM model](optional-mtmm.qmd) (Byrne chapter 10) and [latent growth curves](optional-growth.qmd) (chapter 11).
+
+Byrne's chapter numbers refer to the third edition (2016). Her data files are free from the [Routledge page for the book](https://www.routledge.com/9781138797031). Keep [Where to find it in Amos](../course/amos-output.qmd) open while you work.
+
+## How the tasks change over the course
+
+Early weeks give you a worked example to reproduce and then change. As you gain experience the support is gradually withdrawn:
+
+| Weeks | Task style |
+|:--|:--|
+| 0–4 | **Worked example:** reproduce Byrne's analysis, then change one thing and predict the result |
+| 5–7 | **Completion:** reproduce, then make and justify a decision yourself |
+| 8–15 | **Application:** apply the technique to the Student Life Survey (or your own data), with a checklist |
+| 16–17 | **Independent:** you plan and run the analysis, using the capstone rubric |

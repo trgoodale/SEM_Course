@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Residuals and modification indices · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-04.html" data-book-link>SEM Week 4</a> · <a href="../../sem/week-05.html" data-book-link>Week 5</a></p>
+    <h1>Residuals and modification indices</h1>
+    <p class="lead">A two-factor CFA with six indicators is fitted by maximum likelihood to simulated data. The population may contain a misspecification you cannot see. Use the residuals and modification indices to look for it, free parameters, and then test whether your changes hold up in a new sample.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>The population</h2>
+      <div id="pop"></div>
+      <div class="btn-row" id="pop-buttons"></div>
+      <h2>Your model</h2>
+      <p class="small">F1 is measured by x1–x3 and F2 by x4–x6. Factor variances are fixed to 1, so loadings are on a standardised factor metric.</p>
+      <div id="freed"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="fit-h">
+        <h2 id="fit-h">Model fit</h2>
+        <div id="fit"></div>
+        <div id="fit-note"></div>
+      </section>
+      <section class="panel" aria-labelledby="res-h">
+        <h2 id="res-h">Residuals</h2>
+        <div id="res-type"></div>
+        <div id="residuals"></div>
+        <p class="small" id="res-note"></p>
+      </section>
+      <section class="panel" aria-labelledby="mi-h">
+        <h2 id="mi-h">Modification indices</h2>
+        <p class="small">Each value is the drop in χ² if that parameter were freed (found here by actually refitting; Amos reports a quick approximation of the same thing). The expected change is the estimate the parameter would take.</p>
+        <div id="mi"></div>
+      </section>
+      <section class="panel" aria-labelledby="val-h">
+        <h2 id="val-h">Do your changes replicate?</h2>
+        <p>Fit your modified model to a fresh sample from the same population. Parameters freed only because of chance will usually not be needed in the new sample (MacCallum et al., 1992).</p>
+        <div class="btn-row"><button type="button" id="validate">Test on a new sample</button></div>
+        <div id="validation" role="status"></div>
+      </section>
+      <details>
+        <summary>Parameter estimates</summary>
+        <div id="estimates"></div>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>With no misspecification in the population, free the largest modification index three times. How much does χ² improve, and do the freed parameters replicate in a new sample?</li>
+      <li>Set the population to contain a cross-loading. Which residuals and which modification index point to it? Does freeing it replicate?</li>
+      <li>Why should every freed parameter be justified by theory as well as by a modification index?</li>
+      <li>An error covariance and a cross-loading can sometimes improve fit by similar amounts. How would you decide between them?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Data are simulated; estimates use maximum likelihood with numerical optimisation, so they may differ from Amos in the third decimal place.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

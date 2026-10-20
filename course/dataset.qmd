@@ -1,0 +1,73 @@
+# The practice dataset {.unnumbered}
+
+If you do not yet have data of your own, use the **Student Life Survey**. It is a synthetic (computer-generated) dataset about everyday student life: academic stress, peer support, confidence in your studies, engagement with your course and general wellbeing. No real person's responses are included, and any resemblance to a real survey is coincidental. You are free to use and share it.
+
+The same dataset is used from the first regression week to the capstone, so you only have to learn one set of variables.
+
+## The files
+
+| File | What it is for | Download |
+|:--|:--|:--|
+| Student Life Survey, clean version | Regression weeks and the first SEM weeks: complete data, with scale scores already computed | [SPSS (.sav)](../data/student_life_clean.sav) · [CSV](../data/student_life_clean.csv) |
+| Student Life Survey, real-world version | Data screening, missing data and non-normality: the same students, but with the problems real survey data usually have. Part of your task is to find them. | [SPSS (.sav)](../data/student_life_realworld.sav) · [CSV](../data/student_life_realworld.csv) |
+| Student Life Survey, correlation matrix | [Week 0](../sem/week-00.qmd): the correlations, standard deviations and means of the five scale scores, in the SPSS matrix layout Amos reads. Fitting a model to this file gives the same estimates as fitting it to the raw data. | [SPSS (.sav)](../data/student_life_matrix.sav) · [CSV](../data/student_life_matrix.csv) |
+| Stress across the semester | Latent growth curves: the stress score for a separate group of students at four points in one semester | [SPSS (.sav)](../data/student_life_waves.sav) · [CSV](../data/student_life_waves.csv) |
+
+The SPSS files contain variable labels and response labels, and Amos can read them directly. In the CSV files, a blank cell is a missing value.
+
+## The survey
+
+520 students answered the survey: 261 first-year students and 259 in their second year or later. All questionnaire items use five response options.
+
+### Background variables
+
+| Variable | Description | Values |
+|:--|:--|:--|
+| `id` | Participant number | 1–520 |
+| `year` | Year of study | 1 = first year, 2 = second year or later |
+| `work_hours` | Hours of paid work per week | 0 upwards |
+| `commute` | Typical one-way journey to campus, in minutes | 0 upwards |
+
+### Questionnaire items
+
+Stress items ask how often, in the last month, the student had each experience (1 = never, 2 = rarely, 3 = sometimes, 4 = often, 5 = very often). All other items ask how much the student agrees (1 = strongly disagree, 2 = disagree, 3 = neither agree nor disagree, 4 = agree, 5 = strongly agree).
+
+| Scale | Items |
+|:--|:--|
+| **Academic stress** (`STR1`–`STR5`) | STR1: Felt overwhelmed by the amount of coursework · STR2: Worried about missing deadlines · STR3: Felt pressure from upcoming deadlines · STR4: Found it hard to switch off from studying · STR5: Felt nervous about assessments |
+| **Peer support** (`SUP1`–`SUP4`) | SUP1: There are people on my course I can ask for help · SUP2: I have friends I can talk to when things get difficult · SUP3: Other students would help me if I fell behind · SUP4: I feel part of a community at university |
+| **Academic self-efficacy** (`EFF1`–`EFF4`) | EFF1: I can understand even the hardest material on my course · EFF2: I can plan my time to meet my deadlines · EFF3: When I get stuck on a problem, I usually find a way through · EFF4: I am confident I can do well in my assessments |
+| **Engagement** (`ENG1`–`ENG5`) | ENG1: I look forward to my classes · ENG2: I take part in discussions in class · ENG3: I attend all my timetabled sessions · ENG4: I spend time on my course outside timetabled sessions · ENG5: I find my course interesting |
+| **Wellbeing** (`WB1`–`WB5`) | WB1: Overall, I am satisfied with my life at the moment · WB2: I feel positive about the future · WB3: I have been feeling relaxed · WB4: I generally feel good about myself · WB5: I often feel that things are getting on top of me |
+
+WB5 is worded negatively, so a high score means *lower* wellbeing. In the clean file it has already been reverse-scored as `WB5r` (6 − WB5). In the real-world file you will need to do this yourself.
+
+### Scale scores (clean file only)
+
+| Variable | Calculation |
+|:--|:--|
+| `stress` | Mean of STR1–STR5 |
+| `support` | Mean of SUP1–SUP4 |
+| `efficacy` | Mean of EFF1–EFF4 |
+| `engagement` | Mean of ENG1–ENG5 |
+| `wellbeing` | Mean of WB1–WB4 and WB5r |
+
+### Stress across the semester
+
+300 students rated the five stress items in teaching weeks 2, 5, 8 and 11. The file contains `id`, `year` and their mean stress score at each point: `stress_w1` to `stress_w4`.
+
+## Where the dataset fits in the course
+
+| Weeks | Use |
+|:--|:--|
+| R1–R6 | Regressions with the scale scores: wellbeing on stress (R1), adding support (R2), work and commute as controls (R3), checking residuals (R4), whether support changes the effect of stress and whether year of study matters (R5), and whether stress links support to wellbeing (R6) |
+| 0–2 | Refit the regressions in Amos, from the raw data and from the matrix file; a first CFA of the stress and support items |
+| 3–7 | Confirmatory factor analysis of the five scales: fit, local misfit, reliability and validity, and a second-order model |
+| 8–9 | Screening, non-normality and missing data, with the real-world file |
+| 10 | Treating the five-point items as ordinal |
+| 11–12 | A full structural model linking the five constructs, with indirect effects |
+| 13–15 | Comparing first-year and later-year students: invariance, latent means and structural paths |
+| 16–17 | Your capstone, on your own data or this dataset |
+| Optional | Growth in stress across the semester, with the waves file |
+
+These are suggestions. Your tutor may ask different questions of the same data.

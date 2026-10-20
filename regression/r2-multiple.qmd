@@ -1,0 +1,101 @@
+# R2: Multiple regression {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @field2024, the linear model (regression) chapter: the sections on several predictors (about 90 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file: `wellbeing`, `stress`, `support`
+
+App
+: Shared-variance explorer
+
+Task style
+: Worked example: reproduce, then change one thing and predict the result
+
+:::
+
+## By the end of this week you can
+
+- Explain what a partial regression coefficient means ("holding the other predictors constant").
+- Distinguish unique from shared explained variance.
+- Use standardised coefficients and the VIF.
+- Draw a regression with correlated predictors as a path diagram.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What does least squares minimise?
+2. With standardised variables, what does the slope of a simple regression equal?
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. The sum of the squared residuals: the squared vertical distances between the points and the line.
+2. The correlation between the two variables.
+
+</details>
+
+## This week in brief
+
+In multiple regression each coefficient is a *partial* coefficient: the expected change in the outcome for a one-unit change in that predictor, holding the other predictors constant. When predictors overlap, part of what they explain is shared and cannot be credited to either one. Every path coefficient later in the course is a partial coefficient in exactly this sense.
+
+## The model as a path diagram
+
+```{=html}
+<figure class="path-diagram-figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 230" role="img" aria-labelledby="d-r2-t d-r2-d" class="path-diagram" style="max-width:440px;width:100%;height:auto;display:block;margin:0 auto"><title id="d-r2-t">Multiple regression as a path diagram</title><desc id="d-r2-d">X1 and X2 each have an arrow to Y, labelled b1 and b2. A curved two-headed arrow between X1 and X2 shows that the predictors are free to correlate. The error term e points to Y.</desc><defs><marker id="d-r2-an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-line, currentColor)"/></marker><marker id="d-r2-ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-emph, #b3470b)"/></marker></defs><line x1="120" y1="63.6" x2="269" y2="106.1" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r2-an)"/><line x1="120" y1="166.4" x2="269" y2="123.9" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r2-an)"/><path d="M70.9,77 Q38,115 70.1,152" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-start="url(#d-r2-an)" marker-end="url(#d-r2-an)"/><line x1="377" y1="115" x2="331" y2="115" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r2-an)"/><rect x="62" y="35" width="56" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="90" y="60.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">X1</text><rect x="62" y="155" width="56" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="90" y="180.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">X2</text><rect x="272" y="95" width="56" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="300" y="120.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Y</text><circle cx="395" cy="115" r="16" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="395" y="119.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><text x="191.2" y="100.9" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">b1</text><text x="190.7" y="136.2" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">b2</text><text x="28.3" y="118.9" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">r12</text><text x="354" y="107.5" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">1</text></svg><figcaption>Multiple regression with two predictors. The curved arrow shows that X1 and X2 are allowed to correlate; b1 and b2 are partial coefficients.</figcaption></figure>
+```
+
+## In the session
+
+- What "holding constant" means, and why a coefficient can change when a predictor is added.
+- Unique versus shared variance, with the app.
+- Reading the Coefficients table in SPSS with part and partial correlations and collinearity statistics requested.
+
+## After the session
+
+Read the core reading, concentrating on partial coefficients, standardised coefficients (β), part (semipartial) correlations and the VIF.
+
+## Your task this week
+
+1. **Predict first:** when you add `support` to your R1 model, will the coefficient for `stress` get larger, smaller or stay the same? Why?
+2. Regress `wellbeing` on `stress` and `support`. In the Statistics dialog, request part and partial correlations and collinearity diagnostics.
+3. Compare b for stress with your R1 result. Square the two part correlations: how much variance does each predictor explain uniquely, and how much of R² is shared?
+4. Draw the model as a path diagram with both b values and the correlation between the predictors.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/shared-variance/index.html" title="Shared-variance explorer (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/shared-variance/index.html">Open the Shared-variance explorer on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Explain "holding the other predictors constant" to someone who has not studied statistics.
+2. Why did the stress coefficient change between R1 and R2?
+3. What does a VIF of 1.05 tell you?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. It means comparing people who have the same score on the other predictors. The coefficient for stress answers: among students with the same level of support, how much lower is wellbeing for each extra point of stress?
+2. Stress and support are correlated. In R1, part of the stress coefficient reflected the fact that stressed students also tend to have less support. Holding support constant removes that part, so the coefficient for stress shrinks a little.
+3. The predictors barely overlap: the standard error of each coefficient is inflated by only about 2% (√1.05) compared with uncorrelated predictors. Collinearity is not a concern.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Extension: suppression.** Try the "Suppression" scenario in the app: a predictor uncorrelated with the outcome can still improve prediction. [Going further: suppression](../going-further/suppression.qmd) explains why.
+- **If partial coefficients are still unclear:** Kenny's page on [multiple regression](https://davidakenny.net/cm/mr.htm); @cohen2003, chapter 3, for depth.
+- **Looking ahead:** @westfall2016 (open access) shows why "controlling for" a construct measured with error does not fully control for it.

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Missing-data simulator · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-09.html" data-book-link>SEM Week 9</a></p>
+    <h1>Missing-data simulator</h1>
+    <p class="lead">X is always observed; some values of Y are missing. Choose why they are missing and compare listwise deletion, mean imputation and full-information maximum likelihood (FIML), the method Amos uses when you estimate means and intercepts with incomplete data.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Settings</h2>
+      <div id="controls"></div>
+      <div class="btn-row" id="buttons"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="est-h">
+        <h2 id="est-h">Estimates in this sample</h2>
+        <div id="table"></div>
+        <p id="note"></p>
+      </section>
+      <figure class="chart">
+        <div id="chart"></div>
+        <div id="legend"></div>
+        <figcaption>Complete cases and the cases whose Y is missing (shown at their true values, which the analyst never sees).</figcaption>
+      </figure>
+      <section class="panel" aria-labelledby="rep-h">
+        <h2 id="rep-h">Average bias over many samples</h2>
+        <div class="btn-row"><button type="button" id="repeat">Repeat 500 times</button></div>
+        <div id="rep" role="status"></div>
+      </section>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Under MCAR, which methods are unbiased? Which one is still wasteful, and why?</li>
+      <li>Under MAR (missingness depends on X), why does FIML recover the mean of Y while listwise deletion does not?</li>
+      <li>Under MNAR, does any method recover the truth? What could you do in a real study to make MAR more plausible?</li>
+      <li>Why does mean imputation shrink the standard deviation of Y and the correlation, whatever the mechanism?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. FIML estimates here use the closed-form maximum-likelihood solution for this pattern (X complete, Y partly missing), which is what Amos's FIML gives for these data.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

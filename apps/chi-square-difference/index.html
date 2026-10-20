@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>χ² difference test · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-13.html" data-book-link>SEM Week 13</a> · <a href="../../sem/week-15.html" data-book-link>Week 15</a></p>
+    <h1>χ² difference test</h1>
+    <p class="lead">In SEM, two models are nested when one can be made from the other by fixing or equating parameters, for example by constraining loadings to be equal across groups. The χ² difference test asks whether the constraints make fit significantly worse.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Your two models</h2>
+      <p class="small">Take χ² (CMIN) and df from the Model Fit output for each model.</p>
+      <div id="inputs"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="res-h">
+        <h2 id="res-h">Result</h2>
+        <div id="stats"></div>
+        <p id="text"></p>
+      </section>
+      <figure class="chart">
+        <div id="chart"></div>
+        <figcaption>The χ² distribution with Δdf degrees of freedom if the constraints were true in the population. The shaded tail is the p-value.</figcaption>
+      </figure>
+      <div class="callout">
+        <p><strong>Looking back to R3.</strong> This is the same logic as the F test for the change in R² in a hierarchical regression. There, Model 1 was Model 2 with some paths fixed at zero, and the test asked whether the extra paths explained more than chance would. Here the constrained model has more degrees of freedom (fewer free parameters), and the test asks whether freeing those parameters improves fit by more than chance would.</p>
+        <div class="table-wrap"><table><caption>The two tests side by side</caption><thead><tr><th scope="col" class="left">&nbsp;<span class="sr-only">Feature</span></th><th scope="col" class="left">Hierarchical regression (R3)</th><th scope="col" class="left">SEM</th></tr></thead><tbody><tr><th scope="row" class="left">Simpler model</th><td class="left">Fewer predictors</td><td class="left">More constraints (more df)</td></tr><tr><th scope="row" class="left">What changes</th><td class="left">R² increases</td><td class="left">χ² decreases</td></tr><tr><th scope="row" class="left">Test</th><td class="left">F for ΔR²</td><td class="left">Δχ² on Δdf</td></tr><tr><th scope="row" class="left">Non-significant result</th><td class="left">Keep the simpler model</td><td class="left">Keep the constrained model</td></tr></tbody></table></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Which model do you prefer when the Δχ² test is not significant, and why?</li>
+      <li>Like χ² itself, Δχ² grows with sample size. Why do some authors also report ΔCFI (Cheung & Rensvold, 2002)?</li>
+      <li>What is the regression equivalent of constraining a structural path to be equal in two groups?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Calculations use the χ² distribution.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

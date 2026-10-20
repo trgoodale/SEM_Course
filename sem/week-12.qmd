@@ -1,0 +1,92 @@
+# Week 12: Consolidation {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: None: this week is for consolidation
+
+Data
+: [Student Life Survey](../course/dataset.qmd) or your own data
+
+App
+: None
+
+Task style
+: Application: apply the technique to the Student Life Survey (or your own data) with a checklist
+
+:::
+
+## By the end of this week you can
+
+- Explain and defend your measurement and structural models from start to finish.
+- Identify what is still unclear from Weeks 0–11.
+- Begin your results draft.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What is the two-step approach?
+2. Why does a regression model have 0 df?
+3. Which Amos options are unavailable when the data have missing values? (Week 9)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Test the measurement model first, then add the structural model.
+2. It estimates as many parameters as there are variances and covariances.
+3. Modification indices, tests for normality and outliers, and the bootstrap.
+
+</details>
+
+## This week in brief
+
+No new material. You present your analysis so far, we work through the "still unclear" items in your log, and you start writing. From now on the SEM log has a second part: a running draft of your results section, which becomes the capstone.
+
+## Before the session
+
+Reread your SEM log. Prepare a 10-minute walk-through of your screening, measurement model and structural model.
+
+## In the session
+
+- Your walk-through, with questions.
+- The unclear items from your log.
+- The structure of a results section, using the [capstone rubric](week-17.qmd#capstone-rubric).
+
+## Your task this week
+
+Start your results draft with two subsections, using the rubric:
+
+1. **Data screening and missing data** (from Weeks 8 and 9).
+2. **Measurement model** (from Weeks 3–7): fit, loadings, reliability and validity, and every change with its justification.
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Which decision so far was hardest to justify, and how did you justify it?
+2. What would you do differently if you started the analysis again?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. There is no single answer. A strong answer names the decision (for example, freeing an error covariance), the evidence (MI, wording), the alternative and why it was rejected.
+2. A strong answer usually mentions planning: deciding the model and the criteria for changes before looking at modification indices.
+
+</details>
+
+## Checkpoint
+
+You have now finished the single-group weeks.
+
+- [ ] I can screen data and justify how I handled problems and missing values.
+- [ ] I can fit and defend a measurement model.
+- [ ] I can fit a structural model and report direct and indirect effects.
+- [ ] I have written the first two subsections of my results draft.
+
+Anything you cannot yet tick is the first item for the next session.
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **If you want a model of reporting:** @schreiber2006 and @jackson2009.

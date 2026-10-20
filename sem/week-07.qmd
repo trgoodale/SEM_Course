@@ -1,0 +1,111 @@
+# Week 7: Second-order CFA {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 5, the analysis based on continuous data, pp. 149–162 (about 60 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file
+
+App
+: Identification and degrees of freedom
+
+Task style
+: Completion: reproduce, then make and justify a decision yourself
+
+:::
+
+## By the end of this week you can
+
+- Specify a higher-order factor in Amos.
+- Explain the identification of the higher-order part.
+- Decide whether a second-order model is justified.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What does AVE measure?
+2. What does a modification index estimate? (Week 4)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. The average proportion of variance in a factor's items explained by the factor.
+2. How much χ² would fall if one fixed parameter were freed.
+
+</details>
+
+## This week in brief
+
+A second-order factor explains the correlations among first-order factors. It is more parsimonious than letting all first-order factors correlate, but with only three first-order factors the two models fit identically, and with two the higher-order part is not identified.
+
+## The model as a path diagram
+
+```{=html}
+<figure class="path-diagram-figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 690 345" role="img" aria-labelledby="d-sem2-t d-sem2-d" class="path-diagram" style="max-width:690px;width:100%;height:auto;display:block;margin:0 auto"><title id="d-sem2-t">Second-order factor model</title><desc id="d-sem2-d">A higher-order factor at the top points to three first-order factors, each with a disturbance term d. Each first-order factor points to three items, each with an error term. The higher-order part replaces the correlations among the first-order factors.</desc><defs><marker id="d-sem2-an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-line, currentColor)"/></marker><marker id="d-sem2-ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-emph, #b3470b)"/></marker></defs><line x1="119.4" y1="163.1" x2="82.8" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="71" y1="300" x2="71" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="133" y1="164" x2="133" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="133" y1="300" x2="133" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="146.6" y1="163.1" x2="183.2" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="195" y1="300" x2="195" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="331.4" y1="163.1" x2="294.8" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="283" y1="300" x2="283" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="345" y1="164" x2="345" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="345" y1="300" x2="345" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="358.6" y1="163.1" x2="395.2" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="407" y1="300" x2="407" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="543.4" y1="163.1" x2="506.8" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="495" y1="300" x2="495" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="557" y1="164" x2="557" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="557" y1="300" x2="557" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="570.6" y1="163.1" x2="607.2" y2="225" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="619" y1="300" x2="619" y2="265" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="303.4" y1="59.6" x2="169.7" y2="122.7" style="stroke:var(--pd-emph, #b3470b);fill:none;stroke-width:2.6;" marker-end="url(#d-sem2-ae)"/><line x1="198.8" y1="102.9" x2="166.5" y2="121.1" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="345" y1="64" x2="345" y2="115" style="stroke:var(--pd-emph, #b3470b);fill:none;stroke-width:2.6;" marker-end="url(#d-sem2-ae)"/><line x1="410.8" y1="102.9" x2="378.5" y2="121.1" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><line x1="386.6" y1="59.6" x2="520.3" y2="122.7" style="stroke:var(--pd-emph, #b3470b);fill:none;stroke-width:2.6;" marker-end="url(#d-sem2-ae)"/><line x1="622.8" y1="102.9" x2="590.5" y2="121.1" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem2-an)"/><ellipse cx="133" cy="140" rx="48" ry="22" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="133" y="145.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Factor 1</text><rect x="44" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="71" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">a1</text><circle cx="71" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="71" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="106" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="133" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">a2</text><circle cx="133" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="133" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="168" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="195" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">a3</text><circle cx="195" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="195" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><ellipse cx="345" cy="140" rx="48" ry="22" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="345" y="145.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Factor 2</text><rect x="256" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="283" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">b1</text><circle cx="283" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="283" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="318" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="345" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">b2</text><circle cx="345" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="345" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="380" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="407" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">b3</text><circle cx="407" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="407" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><ellipse cx="557" cy="140" rx="48" ry="22" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="557" y="145.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Factor 3</text><rect x="468" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="495" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">c1</text><circle cx="495" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="495" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="530" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="557" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">c2</text><circle cx="557" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="557" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="592" y="228" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="619" y="250.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">c3</text><circle cx="619" cy="315" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="619" y="319.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><ellipse cx="345" cy="40" rx="70" ry="22" style="stroke:var(--pd-emph, #b3470b);stroke-width:2.6;fill:var(--pd-fill, transparent)"/><text x="345" y="45.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Higher-order</text><circle cx="211" cy="96" r="12" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="211" y="100.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">d</text><circle cx="423" cy="96" r="12" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="423" y="100.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">d</text><circle cx="635" cy="96" r="12" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="635" y="100.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">d</text><text x="107" y="206.2" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">1</text><text x="319" y="206.2" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">1</text><text x="531" y="206.2" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">1</text><text x="231.5" y="84.8" text-anchor="middle" style="fill:var(--pd-emph, #b3470b);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">1</text></svg><figcaption>A second-order model: the higher-order factor replaces the correlations among the first-order factors. Each first-order factor has a disturbance, d.</figcaption></figure>
+```
+
+## In the session
+
+- Specifying a higher-order factor and setting its scale.
+- Identification of the higher-order part, with the app.
+- Comparing the second-order and correlated-factors models.
+
+## After the session
+
+Read the core reading with these questions in mind:
+
+- Why does Byrne propose a second-order factor for these data (pp. 150–152)?
+- With only three first-order factors, why is the upper level of the model just-identified (pp. 153–154)?
+- How does she use Amos's critical ratios for differences to choose an equality constraint that resolves this?
+
+## Your task this week
+
+1. Reproduce Byrne's second-order model.
+2. Some researchers would argue that support, self-efficacy and engagement reflect a broader "academic adjustment". Fit a second-order factor for those three factors and compare it with the model in which they simply correlate.
+3. **Decide:** is the second-order model justified? Use the df, the fit and the theory.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/identification/index.html" title="Identification and degrees of freedom (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/identification/index.html">Open the Identification and degrees of freedom on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. When is a second-order model just a re-expression of the correlated first-order model?
+2. What would justify a second-order factor?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. With three first-order factors the higher-order part is just-identified: three loadings replace three correlations, so df and fit are identical.
+2. A theory that the first-order factors are facets of one broader construct, and enough first-order factors (four or more) for the claim to be testable.
+
+</details>
+
+## Checkpoint
+
+You have now finished the single-group measurement weeks.
+
+- [ ] I can specify, fit and evaluate a CFA in Amos.
+- [ ] I can find and judge local misfit with residuals and modification indices.
+- [ ] I can justify each change to a measurement model.
+- [ ] I can report CR, AVE and HTMT for each factor.
+- [ ] I can explain when a second-order model is testable.
+
+Anything you cannot yet tick is the first item for the next session.
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Looking ahead:** @chen2005 on invariance testing for second-order models.

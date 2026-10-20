@@ -1,0 +1,57 @@
+# Partial invariance: which parameter to free {.unnumbered}
+
+*First raised in [Week 13](../sem/week-13.qmd). Optional.*
+
+## What it is
+
+When full metric or scalar invariance fails, you may still be able to compare groups if **most** items are invariant. **Partial invariance** frees the loadings or intercepts of the items that differ and keeps the rest equal [@byrne1989]. Latent means can then be compared, anchored by the invariant items.
+
+## How to find the item
+
+Work one parameter at a time:
+
+1. **Look at the item means by group.** If the latent mean differs, every item should shift in the same direction, in proportion to its loading. An item that moves the other way, or much further, is a candidate.
+2. **Look at the modification indices** for the equality constraints (Amos gives them only with complete data). A large MI on one intercept points to the same item.
+3. **Free the most likely parameter, refit, and re-test** with Δχ² and ΔCFI. Stop when the model is acceptable; do not free everything with a moderate MI.
+4. **Read the item.** A non-invariant item should make sense: something about the item, not the construct, differs between groups.
+
+## A worked example
+
+Engagement item means in the Student Life Survey:
+
+| Item | First year | Later years | Difference |
+|:--|--:|--:|--:|
+| ENG1 I look forward to my classes | 3.11 | 3.15 | +0.04 |
+| ENG2 I take part in discussions in class | 3.06 | 3.26 | +0.20 |
+| ENG3 I attend all my timetabled sessions | 3.11 | 2.65 | **−0.46** |
+| ENG4 I spend time on my course outside timetabled sessions | 3.16 | 3.14 | −0.02 |
+| ENG5 I find my course interesting | 3.08 | 3.18 | +0.10 |
+
+Four items rise slightly or stay level in later years; ENG3 drops sharply. One plausible reading: in later years, timetables include more optional sessions, placements or independent study, so attending "all" sessions reflects how a course is organised as well as how engaged a student is. Freeing ENG3's intercept in the later-year group gives partial scalar invariance, and the latent engagement means can then be compared.
+
+
+::: {.callout-tip title="Try it"}
+The invariance ladder below opens on the scenario "Item 3 intercept higher in Group B", and shows which level fails, which item to free, and how much the observed totals would mislead.
+
+```{=html}
+<details class="try-app">
+  <summary>Try it here: Invariance ladder</summary>
+  <figure class="app-embed">
+    <iframe data-app src="../apps/invariance/index.html?scenario=oneInt" title="Invariance ladder (interactive app)" loading="lazy"></iframe>
+    <figcaption><a href="../apps/invariance/index.html?scenario=oneInt">Open the invariance ladder on its own page</a> for more space.</figcaption>
+  </figure>
+</details>
+```
+:::
+
+## Rules of thumb
+
+- Keep at least two invariant items per factor: the marker item plus at least one more. @byrne1989 [p. 458] argue that further tests are justified when a factor has several indicators and at least one besides the marker is invariant. More is better, and @byrne2016 [p. 231] notes that partial invariance has itself been debated in the technical literature.
+- The **marker item** (loading fixed to 1) must itself be invariant. If it is the problem item, choose a different marker.
+- Report which parameters you freed and why, and how many items remain invariant.
+
+## Reading
+
+- @byrne1989, the paper that introduced partial invariance.
+- @putnick2016, a short practical review.
+- @vandenberg2000, a fuller review.

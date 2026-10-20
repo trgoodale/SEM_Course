@@ -1,0 +1,46 @@
+# Heywood cases: negative variances {.unnumbered}
+
+*First raised in [Week 4](../sem/week-04.qmd). Optional.*
+
+## What it is
+
+A **Heywood case** is an impossible estimate: usually a negative error variance, which means a standardised loading above 1 and an R² above 1 for that item. Amos still reports the estimates and warns about the problem in its notes. Check the **Variances** table every time you fit a model.
+
+## Why it happens
+
+A factor with only three indicators is just identified, so its loadings are determined directly by the three correlations among the items. For the first item, the squared standardised loading is
+
+λ<sub>1</sub>² = r<sub>12</sub> × r<sub>13</sub> / r<sub>23</sub>.
+
+Nothing in that formula stops it exceeding 1.
+
+## A worked example
+
+Suppose three items correlate r<sub>12</sub> = .72, r<sub>13</sub> = .63 and r<sub>23</sub> = .40. Then λ<sub>1</sub>² = .72 × .63 / .40 = 1.13, so the standardised loading is 1.06 and the error variance is −0.13. The other two items are fine (loadings .68 and .59). The low correlation between items 2 and 3 forces item 1 to "explain" more than all of its own variance.
+
+## Try it
+
+Work through the guided tour at the top of the app. Its last step shows how often sampling error alone produces a Heywood case in small samples.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/heywood/index.html" title="Heywood case explorer (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/heywood/index.html">Open the Heywood case explorer on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## Common causes, and what to do
+
+| Cause | Sign | What to do |
+|:--|:--|:--|
+| Sampling error: a true variance close to 0 in a small sample | The negative estimate is small, and its confidence interval includes 0 | Report it. Fixing the variance at a small positive value or 0 is common, but say that you did |
+| Misspecification: a missing cross-loading or error covariance | Poor local fit; large modification indices near the item | Respecify, with a substantive reason [@kolenikov2012] |
+| Too few indicators per factor, or factors that are nearly the same | Two-indicator factors; factor correlations near 1 | Add indicators or reconsider the measurement model |
+| Outliers | Large Mahalanobis distances | Screen the data ([Week 8](../sem/week-08.qmd)) |
+
+Do not simply constrain the variance and move on: a Heywood case is information about the model or the data.
+
+## Reading
+
+- @kolenikov2012, on testing whether a negative variance signals misspecification.
+- @brown2015, the chapter on CFA respecification.

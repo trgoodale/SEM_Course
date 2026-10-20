@@ -1,0 +1,100 @@
+# Week 9: Missing data {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 13, pp. 393–406 (about 60 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), real-world file after your Week 8 cleaning
+
+App
+: Missing-data simulator
+
+Task style
+: Application: apply the technique to the Student Life Survey (or your own data) with a checklist
+
+:::
+
+## By the end of this week you can
+
+- Distinguish MCAR, MAR and MNAR.
+- Explain why listwise deletion is biased under MAR.
+- Run full-information maximum likelihood (FIML) in Amos.
+- Use an auxiliary variable to make MAR more plausible.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What does the Bollen–Stine bootstrap test?
+2. How can a scale have acceptable CR but an AVE below .50? (Week 6)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Overall model fit, without assuming multivariate normality.
+2. Several items with moderate loadings add up to a reliable total, even though each item shares less than half of its variance with the factor.
+
+</details>
+
+## This week in brief
+
+How you handle missing data depends on why it is missing. Listwise deletion is unbiased only when data are missing completely at random (MCAR). FIML, which Amos uses when you estimate means and intercepts, is unbiased when data are missing at random (MAR), given the variables in the model.
+
+## In the session
+
+- MCAR, MAR and MNAR, with the simulator.
+- FIML in Amos ("Estimate means and intercepts") and what changes in the output.
+- Auxiliary variables. Note that Amos does not give modification indices or bootstrapping with incomplete data.
+
+## After the session
+
+Read the core reading with these questions in mind:
+
+- How do the basic patterns of missing data differ (pp. 394–396)?
+- Why does Byrne advise against the ad hoc approaches, such as listwise deletion and mean imputation (pp. 396–399)?
+- What do you have to switch on in Amos to use FIML (p. 400), and which options become unavailable?
+
+## Your task this week
+
+1. Describe the missing data in your cleaned real-world file: how much, and in which items?
+2. Is missingness on the wellbeing items related to anything you observed? Compare `work_hours` for students with and without wellbeing data.
+3. Fit your CFA twice: with listwise deletion, and with FIML (Estimate means and intercepts), including `work_hours` as an auxiliary variable correlated with the factors. Compare the estimates.
+4. Write a paragraph on how you handled missing data and why.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/missing-data/index.html" title="Missing-data simulator (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/missing-data/index.html">Open the Missing-data simulator on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Why is listwise deletion biased under MAR but FIML is not?
+2. What did you find about the wellbeing items in this file?
+3. What could you do in your own study to make MAR more plausible?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. Under MAR, who is missing depends on observed variables. Listwise deletion drops those cases, so the remaining sample is unrepresentative. FIML uses all observed information, including the variables that predict missingness, so it can correct for it.
+2. They are missing more often for students who work more paid hours, which is consistent with MAR on `work_hours`. Including it in the model makes the MAR assumption more plausible.
+3. Measure variables likely to predict missingness (for example, workload or time pressure) and include them as auxiliary variables.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Going further:** [FIML and auxiliary variables](../going-further/fiml-auxiliary.qmd), for a worked example with the real-world file.
+- **The standard overview:** @schafer2002.
+- **FIML in SEM:** @enders2001.
+- **Book-length:** @enders2022.

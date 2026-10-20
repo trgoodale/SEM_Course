@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrapping an indirect effect · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../regression/r6-mediation.html" data-book-link>R6: Mediation</a> · <a href="../../sem/week-08.html" data-book-link>SEM Week 8</a> · <a href="../../sem/week-11.html" data-book-link>Week 11</a></p>
+    <h1>Bootstrapping an indirect effect</h1>
+    <p class="lead">The indirect effect a × b in a mediation model X → M → Y does not have a normal sampling distribution. Compare the normal-theory (Sobel) confidence interval with a percentile bootstrap interval, and check how often each captures the true value.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Population and sample</h2>
+      <div id="controls"></div>
+      <div class="btn-row" id="buttons"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="est-h">
+        <h2 id="est-h">This sample</h2>
+        <div id="stats"></div>
+        <div id="ci"></div>
+      </section>
+      <figure class="chart">
+        <div id="hist"></div>
+        <div id="hist-legend"></div>
+        <figcaption>Distribution of a × b across bootstrap resamples, with the percentile and normal-theory 95% intervals.</figcaption>
+      </figure>
+      <section class="panel" aria-labelledby="sim-h">
+        <h2 id="sim-h">How well do the intervals work?</h2>
+        <p>Draw 200 new samples from the same population and compute both intervals in each (500 bootstrap resamples per sample, so this takes a few seconds).</p>
+        <div class="btn-row"><button type="button" id="run">Run 200 replications</button></div>
+        <div id="progress-box" hidden><label for="progress">Progress</label> <progress id="progress" max="200" value="0"></progress></div>
+        <div id="sim" role="status"></div>
+      </section>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Why is the bootstrap distribution of a × b often skewed, even when the data are normal?</li>
+      <li>With a small sample and a small indirect effect, which interval detects the effect more often? Which keeps closer to 95% coverage?</li>
+      <li>Amos computes bootstrap confidence intervals for indirect effects (Analysis Properties > Bootstrap). How would you report them, following Preacher and Hayes (2008)?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Data are simulated. Percentile intervals are shown; Amos also offers bias-corrected intervals.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

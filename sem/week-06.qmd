@@ -1,0 +1,98 @@
+# Week 6: Reliability and validity {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: [StatWiki: CFA, validity and reliability](https://statwiki.gaskination.com/index.php?title=CFA) (about 30 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file: your final Week 5 CFA ([diagram](week-03.qmd#the-model-as-a-path-diagram))
+
+App
+: Reliability and validity calculator
+
+Task style
+: Completion: reproduce, then make and justify a decision yourself
+
+:::
+
+## By the end of this week you can
+
+- Compute and interpret composite reliability (CR) and average variance extracted (AVE).
+- Assess discriminant validity with the HTMT ratio.
+- Explain why Cronbach's α assumes equal loadings.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What does CFI compare your model with? (Week 3)
+2. Name one reason an error covariance might be defensible.
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. The independence (baseline) model, in which all the variables are uncorrelated.
+2. The two items share wording or content beyond the factor.
+
+</details>
+
+## This week in brief
+
+Once the measurement model is settled, you report how reliable each scale is and whether the constructs are distinct. Composite reliability and AVE come from the standardised loadings. For discriminant validity, this course uses the HTMT ratio [@henseler2015]; the older Fornell–Larcker criterion [@fornell1981] is shown in the calculator for comparison.
+
+## In the session
+
+- CR and AVE from standardised loadings, and how CR relates to α.
+- HTMT: what it compares and how to read it.
+
+## After the session
+
+Read the core reading with these questions in mind:
+
+- How are composite reliability (CR) and average variance extracted (AVE) calculated from standardised loadings?
+- What does HTMT compare, and what threshold does the page use?
+- For each threshold the page gives, is it presented as a rule or as a guide?
+
+## Your task this week
+
+1. Paste the standardised loadings and factor correlations from your final CFA into the calculator.
+2. Report CR and AVE for each factor. Which factor has the lowest AVE, and why?
+3. For HTMT, correlate the items in SPSS (Analyze > Correlate > Bivariate) and paste the matrix. Which pair of factors is closest to the .85 threshold?
+4. Compare each CR with the Cronbach's α you found in R6. Why might they differ?
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/reliability-validity/index.html" title="Reliability and validity calculator (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/reliability-validity/index.html">Open the Reliability and validity calculator on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Why can a scale have acceptable CR but an AVE below .50?
+2. What does HTMT compare?
+3. Why might CR and α differ?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. CR grows with the number of items, while AVE is an average per item. Several moderately loading items make a reliable total even though each shares less than half its variance with the factor.
+2. The average correlation between items of different factors with the average correlation among items of the same factor. Values near 1 mean the items do not distinguish the two constructs.
+3. α assumes every item loads equally (tau-equivalence). CR uses the actual loadings, so when loadings vary, as they do here, the two diverge slightly.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Going further:** [HTMT and Fornell–Larcker](../going-further/htmt-fornell-larcker.qmd), for why the two criteria can disagree, using efficacy and engagement.
+- **The original sources:** @fornell1981; @henseler2015.
+- **Current recommendations:** @gaskin2025.
+- **A spreadsheet that does the same:** Gaskin's Stats Tools Package, linked from the [StatWiki home page](https://statwiki.gaskination.com/).

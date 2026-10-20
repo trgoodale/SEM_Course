@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Attenuation simulator · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-00.html" data-book-link>SEM Week 0</a></p>
+    <h1>Attenuation simulator</h1>
+    <p class="lead">Measurement error in a predictor shrinks a regression slope towards zero, and error in either variable weakens a correlation. Set the true relationship and the reliabilities, then compare what you would observe with the truth.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Settings</h2>
+      <div id="controls"></div>
+      <div id="toggles"></div>
+      <div class="btn-row" id="buttons"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="res-h">
+        <h2 id="res-h">Truth versus what you observe</h2>
+        <div id="table"></div>
+        <p id="summary"></p>
+      </section>
+      <figure class="chart">
+        <div id="chart"></div>
+        <div id="legend"></div>
+        <figcaption>Observed scores with their regression line, compared with the true-score regression line.</figcaption>
+      </figure>
+      <details>
+        <summary>Why this happens</summary>
+        <p>Observed X = true X + error. The error adds variance to X but nothing to its covariance with Y, so the slope cov(X, Y) / var(X) shrinks by the reliability of X. The correlation shrinks by the square root of the product of the two reliabilities.</p>
+        <p class="formula">observed slope = true slope × reliability(X)
+observed r = true r × √(reliability(X) × reliability(Y))</p>
+        <p>Latent variables in SEM model the error explicitly, so the structural paths between latent variables estimate relationships between true scores.</p>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>With reliability of X set to .70 (a common value for short scales), how much is the slope underestimated?</li>
+      <li>Why does error in Y leave the slope unbiased but still lower the correlation and R²?</li>
+      <li>Explain in your own words how a latent-variable model avoids this bias. What does it need from your data to do so?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Data are simulated.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

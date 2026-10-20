@@ -1,0 +1,94 @@
+# Week 16: Consolidation and capstone planning {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: None
+
+Data
+: [Student Life Survey](../course/dataset.qmd) or your own data
+
+App
+: None
+
+Task style
+: Independent: plan and carry out the analysis yourself; the session reviews your plan
+
+:::
+
+## By the end of this week you can
+
+- Complete a full draft of your results section.
+- Assess the draft against the capstone rubric.
+- Plan the capstone presentation.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What can you compare once scalar invariance holds?
+2. What is the regression counterpart of testing equal paths across groups?
+3. Why bootstrap an indirect effect?
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Latent means.
+2. A group × predictor interaction.
+3. Its sampling distribution is skewed.
+
+</details>
+
+## This week in brief
+
+No new material. You finish your results draft, assess it against the rubric, and plan the capstone. Bring the draft to the session.
+
+## Before the session
+
+Make sure every section of your draft exists, even in rough form: screening and missing data, measurement model, structural model, group comparisons. Polishing comes in Week 16, using the rubric.
+
+## In the session
+
+- Your self-assessment against the rubric, and our comments.
+- What to present in Week 17, and in what order.
+
+## Your task this week
+
+1. Assess your draft against the [rubric](week-17.qmd#capstone-rubric). For each criterion, note what is missing.
+2. Revise the draft.
+3. Plan a 15-minute presentation of your analysis.
+
+::: {.callout-note title="Before next week's session"}
+Week 17 has no new material, so prepare for it during this week. Finalise your draft and presentation. Use the reporting checklist in @schreiber2006 and the APA standards.
+:::
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Which rubric criterion is your draft weakest on?
+2. What would a reviewer most likely question about your analysis?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. Answers vary. Common gaps are justifying respecifications and reporting enough detail for someone else to reproduce the analysis.
+2. Answers vary. Typical targets: causal language with cross-sectional data, post hoc changes, and the handling of missing data.
+
+</details>
+
+## Checkpoint
+
+Before the capstone:
+
+- [ ] My results draft covers screening, missing data, the measurement model, the structural model and group comparisons.
+- [ ] Every respecification is justified.
+- [ ] I can explain every number in my tables.
+- [ ] I have checked the draft against the rubric.
+
+Anything you cannot yet tick is the first item for the next session.
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Reporting standards:** @appelbaum2018, the SEM section of the APA Journal Article Reporting Standards.

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reliability and validity calculator · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-06.html" data-book-link>SEM Week 6</a> · <a href="../../sem/week-17.html" data-book-link>Week 17</a></p>
+    <h1>Reliability and validity calculator</h1>
+    <p class="lead">Paste the standardised loadings and factor correlations from your Amos CFA output. The calculator gives composite reliability, average variance extracted and the Fornell–Larcker check. If you also paste the item correlation matrix, it gives the HTMT ratio.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout wide-controls">
+    <div class="panel">
+      <h2>Your CFA results</h2>
+      <div class="btn-row"><button type="button" class="secondary" id="example">Load an example</button><button type="button" class="secondary" id="clear">Clear</button></div>
+      <div class="control">
+        <label for="loadings" style="display:block;font-weight:600">Standardised loadings, one factor per line</label>
+        <span class="hint" id="loadings-hint">Format: <code>Name: .72 .81 .65</code>. Separate values with spaces or commas. In Amos, see Standardized Regression Weights.</span>
+        <textarea id="loadings" aria-describedby="loadings-hint loadings-err" rows="5"></textarea>
+        <div class="error-text" id="loadings-err" role="alert"></div>
+      </div>
+      <fieldset>
+        <legend>Factor correlations</legend>
+        <p class="small">In Amos, see Correlations (between the factors).</p>
+        <div id="phi"></div>
+      </fieldset>
+      <div class="control">
+        <label for="items" style="display:block;font-weight:600">Item correlation matrix (optional, for HTMT)</label>
+        <span class="hint" id="items-hint">Paste the full or lower-triangular correlation matrix of the items, in the same order as the loadings above, one row per line.</span>
+        <textarea id="items" aria-describedby="items-hint items-err" rows="6"></textarea>
+        <div class="error-text" id="items-err" role="alert"></div>
+      </div>
+    </div>
+    <div class="stack" id="results">
+      <section class="panel" aria-labelledby="rel-h">
+        <h2 id="rel-h">Reliability and convergent validity</h2>
+        <div id="rel"></div>
+      </section>
+      <section class="panel" aria-labelledby="fl-h">
+        <h2 id="fl-h">Discriminant validity: Fornell–Larcker</h2>
+        <p class="small">The diagonal shows √AVE. Each should be larger than that factor's correlations with every other factor.</p>
+        <div id="fl"></div>
+      </section>
+      <section class="panel" aria-labelledby="htmt-h">
+        <h2 id="htmt-h">Discriminant validity: HTMT</h2>
+        <div id="htmt"></div>
+      </section>
+      <details>
+        <summary>Formulas, worked for the first factor</summary>
+        <div id="working"></div>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Why can a factor have acceptable composite reliability but an AVE below .50? What does that combination tell you?</li>
+      <li>Two factors correlate .88. Which checks fail, and what would you consider doing about it?</li>
+      <li>Why is HTMT now often preferred to the Fornell–Larcker criterion (Henseler et al., 2015)?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Thresholds follow common practice (Fornell & Larcker, 1981; Henseler et al., 2015; Hair et al.). Cronbach's alpha is not shown because it assumes equal loadings.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

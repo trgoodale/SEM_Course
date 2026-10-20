@@ -1,0 +1,101 @@
+# Week 17: Capstone {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @schreiber2006 (about 60 minutes); the SEM section of @appelbaum2018 as a checklist
+
+Data
+: [Student Life Survey](../course/dataset.qmd) or your own data
+
+Apps
+: Fit index explorer; Reliability and validity calculator
+
+Task style
+: Independent: plan and carry out the analysis yourself; the session reviews your plan
+
+:::
+
+## By the end of this week you can
+
+- Present a complete SEM analysis and defend its decisions.
+- Submit a results section that meets the APA reporting standards for SEM.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. Name three things every SEM results section must report.
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. For example: sample size and missing data handling, estimator and software, fit of measurement and structural models, standardised estimates with their significance, and any respecifications with justification.
+
+</details>
+
+## This week in brief
+
+You present your analysis from data screening to the final model, and submit your revised results section. The rubric below is the standard it will be discussed against.
+
+## Before the session
+
+Finalise your draft and presentation. Use the reporting checklist in @schreiber2006 and the APA standards.
+
+## In the session
+
+- Your presentation (15 minutes).
+- Discussion of the choices you made and the alternatives.
+
+## Your task this week
+
+Submit the final results section, revised after the session.
+
+## Interactive apps
+
+Use these to double-check the values you report.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/fit-indices/index.html" title="Fit index explorer (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/fit-indices/index.html">Open the Fit index explorer on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+Also useful this week: the [Reliability and validity calculator](../apps/reliability-validity/index.html).
+
+## Capstone rubric {#capstone-rubric}
+
+| Criterion | Developing | Secure | Excellent |
+|:--|:--|:--|:--|
+| Data screening | Some checks reported | Ranges, codes, outliers and normality checked and reported | As secure, with decisions justified and their effect on results shown |
+| Missing data | Amount reported | Amount, pattern and method (with reason) reported | As secure, with the MAR assumption discussed and supported |
+| Model specification | Model described | Measurement and structural models specified, with a diagram | As secure, with the theoretical basis for each path |
+| Estimation | Software named | Software, estimator and how non-normality was handled | As secure, with bootstrap results where relevant |
+| Fit | Indices listed | χ², df, p, RMSEA (90% CI), CFI, TLI and SRMR, for both models | As secure, interpreted with appropriate caution about cut-offs |
+| Parameters | Some estimates | Standardised loadings and paths with significance; R² for outcomes; reliability and validity | As secure, with indirect effects and confidence intervals |
+| Respecification | Changes listed | Each change justified | As secure, with fit before and after and a note on capitalising on chance |
+| Group comparisons | Groups compared | Invariance sequence reported in a table | As secure, with partial invariance and latent means explained |
+| Clarity | Readable | Follows APA reporting standards | Another researcher could reproduce the analysis |
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Which reporting standard did you find hardest to meet, and why?
+2. What would you do differently in your next SEM project?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. There is no single right answer. A strong answer names the specific standard (for example, justifying each respecification), says what made it hard (often that the decision was made after looking at the results), and says what you did to meet it.
+2. There is no single right answer. A strong answer is concrete and forward-looking. Many people say: plan the model and the analysis decisions before collecting data, and collect auxiliary variables for missing data.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Going further:** [common method variance](../going-further/common-method-variance.qmd), if all your measures are self-report from one occasion.
+- **If you need to justify your sample size:** @wolf2013.
+- **Reporting CFA:** @jackson2009.

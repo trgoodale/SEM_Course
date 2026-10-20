@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invariance ladder · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-13.html" data-book-link>SEM Week 13</a> · <a href="../../sem/week-14.html" data-book-link>Week 14</a></p>
+    <h1>Invariance ladder</h1>
+    <p class="lead">A four-item scale measures one factor in two groups. Change an item's loading or intercept in Group B and see which level of measurement invariance still holds, and how much the comparison of observed scale means is biased.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout wide-controls">
+    <div class="panel">
+      <h2>Group B parameters</h2>
+      <div id="scenario"></div>
+      <div id="kappa"></div>
+      <div id="items"></div>
+      <p class="small">Group A is the reference group: latent mean 0, latent variance 1 in both groups.</p>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="lad-h">
+        <h2 id="lad-h">Which level of invariance holds?</h2>
+        <div id="ladder"></div>
+      </section>
+      <section class="panel" aria-labelledby="mean-h">
+        <h2 id="mean-h">Comparing the groups' scale scores</h2>
+        <div id="means"></div>
+        <p id="mean-text"></p>
+      </section>
+      <section aria-labelledby="plots-h">
+        <h2 id="plots-h">Item response lines</h2>
+        <p class="small">Expected item score at each level of the latent factor. Parallel lines mean equal loadings; lines that coincide mean equal loadings and intercepts.</p>
+        <div id="plots" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr));gap:0.5rem"></div>
+        <div id="plots-legend"></div>
+      </section>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Choose the scenario where every intercept in Group B is higher. Why can this not be told apart from a latent mean difference unless the intercepts are constrained?</li>
+      <li>With one non-invariant intercept, how large is the bias in the observed mean difference? What does partial scalar invariance let you do instead?</li>
+      <li>Why must metric invariance hold before you compare correlations or regression paths across groups, and scalar invariance before you compare means?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Population values; no sampling. In practice each level is tested with a Δχ² test or ΔCFI (Cheung & Rensvold, 2002; Chen, 2007).</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

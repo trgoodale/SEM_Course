@@ -1,0 +1,74 @@
+# Optional topic: Construct validity and the MTMM model {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 10, pp. 311–338 (about 90 minutes)
+
+Data
+: Byrne's chapter 10 data
+
+App
+: Multitrait–multimethod matrix explorer
+
+Task style
+: Independent: plan and carry out the analysis yourself; the session reviews your plan
+
+:::
+
+## By the end of this week you can
+
+- Read an MTMM matrix with the Campbell–Fiske criteria.
+- Explain trait versus method variance.
+- Relate method variance to common method bias.
+
+## This week in brief
+
+A multitrait–multimethod (MTMM) design measures several traits with several methods, so trait variance can be separated from method variance. Use this topic if your project combines different measurement methods, or if common method bias is a concern for your design.
+
+## In the session
+
+- The blocks of an MTMM matrix and the Campbell–Fiske criteria, with the app.
+- The CFA approaches in Byrne's chapter.
+- Common method bias in questionnaire studies.
+
+## After the session
+
+Read the core reading, and skim @campbell1959 for the four criteria.
+
+## Your task this week
+
+1. Apply the Campbell–Fiske criteria to Byrne's MTMM matrix before fitting any model.
+2. Fit her CFA models and compare what they show with your reading of the matrix.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/mtmm/index.html" title="Multitrait–multimethod matrix explorer (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/mtmm/index.html">Open the Multitrait–multimethod matrix explorer on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Which part of the MTMM matrix shows convergent validity, and which discriminant validity?
+2. How could common method variance affect a study that uses only self-report questionnaires?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. Convergent: the validity diagonal (same trait, different methods). Discriminant: validity values exceeding the heterotrait correlations in the same rows and columns.
+2. Shared method variance inflates correlations between constructs, so relationships can look stronger than they are.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Going further:** [common method variance](../going-further/common-method-variance.qmd), for remedies when you cannot use several methods.
+- **Common method bias:** @podsakoff2003; [StatWiki: Common method bias](https://statwiki.gaskination.com/index.php?title=CFA).

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Path-tracing playground · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-11.html" data-book-link>SEM Week 11</a></p>
+    <h1>Path-tracing playground</h1>
+    <p class="lead">A path model implies a correlation for every pair of variables. Set the standardised paths and use the tracing rules to see where each implied correlation comes from: direct effects, indirect effects and spurious or unanalysed associations.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout wide-controls">
+    <div class="panel">
+      <h2>Paths (standardised)</h2>
+      <div id="controls"></div>
+    </div>
+    <div class="stack">
+      <figure class="chart">
+        <div id="diagram"></div>
+        <figcaption>The model. Arrow labels show the standardised path values; removed paths are shown as faint dotted lines.</figcaption>
+      </figure>
+      <div id="invalid" class="callout bad" role="alert" hidden></div>
+      <section class="panel" aria-labelledby="imp-h">
+        <h2 id="imp-h">Implied correlations</h2>
+        <div id="stats"></div>
+        <div id="matrix"></div>
+      </section>
+      <section class="panel" aria-labelledby="dec-h">
+        <h2 id="dec-h">Decompose one correlation</h2>
+        <div id="pair"></div>
+        <div id="decomp"></div>
+      </section>
+    </div>
+  </div>
+  <details>
+    <summary>The tracing rules</summary>
+    <p>For a standardised recursive model, the correlation between two variables is the sum, over every allowable route between them, of the product of the path values along the route. A route is allowable if it:</p>
+    <ul><li>does not go forward along an arrow and then backward against another,</li><li>passes through each variable at most once, and</li><li>includes at most one curved (two-headed) arrow.</li></ul>
+  </details>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Set every path except a1 and b to zero. Why is the implied correlation between X1 and Y now exactly a1 × b?</li>
+      <li>Turn on the X1 → Y path. How does the decomposition of r(X1, Y) change, and which part is the indirect effect?</li>
+      <li>Why is part of r(M, Y) called spurious? What does that mean for interpreting a correlation between a mediator and an outcome?</li>
+      <li>Each removed path adds one degree of freedom. Why?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. All values are standardised; no data are involved.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

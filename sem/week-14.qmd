@@ -1,0 +1,92 @@
+# Week 14: Latent means {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 8, pp. 263–292 (about 90 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file
+
+App
+: Invariance ladder
+
+Task style
+: Application: apply the technique to the Student Life Survey (or your own data) with a checklist
+
+:::
+
+## By the end of this week you can
+
+- Estimate latent mean differences in Amos.
+- Interpret a latent mean difference.
+- Explain why latent and observed mean differences can disagree.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What does partial scalar invariance allow you to do?
+2. Why can FIML be no better than listwise deletion? (Week 9)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Compare latent means, provided enough intercepts are invariant (at least two per factor).
+2. When the variables that explain why data are missing are not in the model, FIML has no information to correct with.
+
+</details>
+
+## This week in brief
+
+With (partial) scalar invariance in place, you can compare latent means. This needs a mean structure: intercepts for the items and means for the factors, with one group's latent means fixed to zero as the reference.
+
+## In the session
+
+- Identifying latent means in Amos.
+- Interpreting a latent mean difference, and comparing it with observed scale scores.
+
+## After the session
+
+Read the core reading with these questions in mind:
+
+- Why must loadings and intercepts be constrained equal before latent means can be compared (pp. 264–266)?
+- How are latent means identified in Amos: which group's means are fixed, and to what (pp. 269–271)?
+- How does Byrne interpret the size and direction of each latent mean difference (pp. 283–288)?
+
+## Your task this week
+
+1. Using your partial-invariance model from Week 13, estimate the latent mean differences between later-year and first-year students for all five factors.
+2. Compare them with t tests on the observed scale scores. For which construct do the two disagree most? Use the Week 13 results and the invariance app to explain why.
+3. Add a subsection on group comparisons to your results draft.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/invariance/index.html" title="Invariance ladder (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/invariance/index.html">Open the Invariance ladder on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Why must one group's latent means be fixed to zero?
+2. Why can latent and observed mean differences disagree?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. Latent means have no natural origin. Fixing one group's means to zero makes the other group's means interpretable as differences.
+2. A non-invariant item shifts the observed scale score for reasons unrelated to the construct. The latent comparison, with that item's intercept freed, is not affected.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **For depth:** @brown2015, the chapter on mean structures and multiple groups.

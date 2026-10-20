@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Residual diagnostics gallery · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../regression/r4-assumptions.html" data-book-link>R4: Assumptions and diagnostics</a></p>
+    <h1>Residual diagnostics gallery</h1>
+    <p class="lead">Each dataset was generated with one problem, or none. Start in explore mode: choose a problem and see how it shows up in the residual plots and the numerical summary. When you are ready, switch to quiz mode and identify the problem in random datasets.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Mode</h2>
+      <div id="mode"></div>
+      <div id="quiz-box" hidden>
+        <fieldset id="answer-set">
+          <legend>What does the evidence suggest?</legend>
+          <div id="answers"></div>
+        </fieldset>
+        <div class="btn-row"><button type="button" id="check">Check my answer</button><button type="button" id="next" class="secondary">Next dataset</button></div>
+        <div id="feedback" role="status"></div>
+        <p class="small" id="score"></p>
+      </div>
+      <div id="explore-box"></div>
+    </div>
+    <div class="stack">
+      <div class="layout" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))">
+        <figure class="chart"><div id="rvf"></div><figcaption>Residuals against fitted values. Look for curvature, a funnel shape or isolated points.</figcaption></figure>
+        <figure class="chart"><div id="qq"></div><figcaption>Normal Q–Q plot of standardised residuals. Points should follow the diagonal line if residuals are normal.</figcaption></figure>
+      </div>
+      <section class="panel" aria-labelledby="sum-h">
+        <h2 id="sum-h">Numerical summary of the residuals</h2>
+        <p class="small">The same evidence as the plots, in numbers. Fitted values are split into thirds (low, middle, high).</p>
+        <div id="summary"></div>
+      </section>
+      <details>
+        <summary>Show the raw scatterplot</summary>
+        <figure class="chart"><div id="scatter"></div><figcaption>Outcome against predictor with the fitted regression line.</figcaption></figure>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Which plot shows non-linearity most clearly, and which shows non-normal residuals?</li>
+      <li>Why is the normality assumption about the residuals rather than about the outcome or the predictors?</li>
+      <li>In the high-leverage scenario, how does one case change the slope? What would you report if you found such a case in your own data?</li>
+      <li>Maximum likelihood estimation in Amos assumes multivariate normality. Which of these problems would you expect to matter for SEM, and why?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Data are simulated.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

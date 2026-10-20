@@ -1,0 +1,50 @@
+<script>
+/* Embedded apps: resize iframes to their content and keep their theme in step with the book. */
+(function () {
+  function currentTheme() {
+    return document.body.classList.contains('quarto-dark') ? 'dark' : 'light';
+  }
+  function frames() {
+    return Array.prototype.slice.call(document.querySelectorAll('iframe[data-app]'));
+  }
+  function sendTheme(frame) {
+    try { frame.contentWindow.postMessage({ type: 'sem-theme', theme: currentTheme() }, '*'); } catch (e) {}
+  }
+  window.addEventListener('message', function (ev) {
+    var d = ev.data;
+    if (!d || typeof d !== 'object') return;
+    frames().forEach(function (f) {
+      if (f.contentWindow !== ev.source) return;
+      if (d.type === 'sem-app-height' && typeof d.height === 'number') {
+        f.style.height = Math.ceil(d.height + 4) + 'px';
+      }
+      if (d.type === 'sem-app-ready') sendTheme(f);
+    });
+  });
+  function syncAll() { frames().forEach(sendTheme); }
+  document.addEventListener('DOMContentLoaded', function () {
+    // Tables that scroll sideways on small screens need to be reachable by keyboard
+    function markScrollers() {
+      document.querySelectorAll('main table').forEach(function (t) {
+        if (t.scrollWidth > t.clientWidth + 1) {
+          t.setAttribute('tabindex', '0'); t.setAttribute('role', 'region');
+          if (!t.getAttribute('aria-label')) t.setAttribute('aria-label', 'Table (scrolls sideways)');
+        } else if (t.getAttribute('role') === 'region') {
+          t.removeAttribute('tabindex'); t.removeAttribute('role');
+        }
+      });
+      document.querySelectorAll('main pre').forEach(function (pre) {
+        if (pre.scrollWidth > pre.clientWidth + 1) {
+          pre.setAttribute('tabindex', '0');
+          if (!pre.getAttribute('aria-label')) { pre.setAttribute('role', 'region'); pre.setAttribute('aria-label', 'Code (scrolls sideways)'); }
+        } else if (pre.getAttribute('aria-label') === 'Code (scrolls sideways)') {
+          pre.removeAttribute('tabindex'); pre.removeAttribute('role'); pre.removeAttribute('aria-label');
+        }
+      });
+    }
+    markScrollers(); window.addEventListener('resize', markScrollers);
+    frames().forEach(function (f) { f.addEventListener('load', function () { sendTheme(f); }); });
+    new MutationObserver(syncAll).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  });
+})();
+</script>

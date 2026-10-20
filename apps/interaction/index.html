@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Interaction plotter · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../regression/r5-moderation.html" data-book-link>R5: Moderation</a></p>
+    <h1>Interaction plotter</h1>
+    <p class="lead">Simulate data from Y = b0 + b1·X + b2·W + b3·X·W, fit the moderated regression, and probe the interaction with simple slopes and the Johnson–Neyman technique. The table fits the model twice, with raw and with mean-centred predictors, so you can see which coefficients change.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Population model</h2>
+      <div id="controls"></div>
+      <div id="centre"></div>
+      <div class="btn-row" id="buttons"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="coef-h">
+        <h2 id="coef-h">Fitted model</h2>
+        <figure class="chart"><div id="diagram" class="diagram-box"></div><figcaption>The moderated regression as a path diagram (raw predictors). The interaction is carried by the product term X × W.</figcaption></figure>
+        <div id="coef"></div>
+        <p id="centre-note"></p>
+      </section>
+      <figure class="chart">
+        <div id="slopes-chart"></div>
+        <div id="slopes-legend"></div>
+        <figcaption>Simple slopes: the predicted relationship between X and Y at low (mean − 1 SD), average and high (mean + 1 SD) values of the moderator W.</figcaption>
+      </figure>
+      <div id="simple-table"></div>
+      <details id="jn-details">
+        <summary>Extension: Johnson–Neyman plot (regions of significance)</summary>
+      <figure class="chart">
+        <div id="jn-chart"></div>
+        <div id="jn-legend"></div>
+        <figcaption>The conditional effect of X (b1 + b3·W) across values of W, with its 95% confidence band. Where the band excludes zero, the effect of X is significant; these ranges of W are shaded and labelled.</figcaption>
+      </figure>
+      <p id="jn-text"></p>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Compare the raw and centred columns of the coefficient table. Which coefficients change, which stay the same, and why?</li>
+      <li>What does b1 mean when the moderator is not centred? Is it a sensible quantity in this example?</li>
+      <li>Why is the Johnson–Neyman region more informative than simple slopes at ±1 SD?</li>
+      <li>Multigroup SEM tests moderation by a categorical variable. How does that relate to the X × W term here?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Data are simulated.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

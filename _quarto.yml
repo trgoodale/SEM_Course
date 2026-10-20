@@ -1,0 +1,94 @@
+project:
+  type: book
+  output-dir: _book
+  resources:
+    - apps/
+    - data/
+
+lang: en-GB
+
+book:
+  title: "Structural Equation Modelling with Amos"
+  subtitle: "A weekly study guide: regression essentials, then Byrne chapter by chapter"
+  author: "T. R. Goodale"
+  date: last-modified
+  date-format: "D MMMM YYYY"
+  search: true
+  page-navigation: true
+  reader-mode: true
+  site-url: https://trgoodale.github.io/SEM_Course/
+  repo-url: https://github.com/trgoodale/SEM_Course
+  chapters:
+    - index.qmd
+    - course/how-it-works.qmd
+    - course/dataset.qmd
+    - part: regression/index.qmd
+      chapters:
+        - regression/r1-covariance.qmd
+        - regression/r2-multiple.qmd
+        - regression/r3-inference.qmd
+        - regression/r4-assumptions.qmd
+        - regression/r5-moderation.qmd
+        - regression/r6-mediation.qmd
+        - regression/readiness.qmd
+    - part: sem/index.qmd
+      chapters:
+        - sem/week-00.qmd
+        - sem/week-01.qmd
+        - sem/week-02.qmd
+        - sem/week-03.qmd
+        - sem/week-04.qmd
+        - sem/week-05.qmd
+        - sem/week-06.qmd
+        - sem/week-07.qmd
+        - sem/week-08.qmd
+        - sem/week-09.qmd
+        - sem/week-10.qmd
+        - sem/week-11.qmd
+        - sem/week-12.qmd
+        - sem/week-13.qmd
+        - sem/week-14.qmd
+        - sem/week-15.qmd
+        - sem/week-16.qmd
+        - sem/week-17.qmd
+    - part: "Optional topics"
+      chapters:
+        - sem/optional-mtmm.qmd
+        - sem/optional-growth.qmd
+    - part: going-further/index.qmd
+      chapters:
+        - going-further/suppression.qmd
+        - going-further/centring.qmd
+        - going-further/johnson-neyman.qmd
+        - going-further/equivalent-models.qmd
+        - going-further/heywood.qmd
+        - going-further/htmt-fornell-larcker.qmd
+        - going-further/robust-chi-square.qmd
+        - going-further/fiml-auxiliary.qmd
+        - going-further/partial-invariance.qmd
+        - going-further/common-method-variance.qmd
+    - apps.qmd
+    - resources.qmd
+    - references.qmd
+  appendices:
+    - course/amos-output.qmd
+    - course/for-tutors.qmd
+
+bibliography: references.bib
+csl: assets/apa.csl
+link-citations: true
+
+format:
+  html:
+    theme:
+      light: [cosmo, assets/custom.scss, assets/custom-light.scss]
+      dark: [darkly, assets/custom.scss, assets/custom-dark.scss]
+    respect-user-color-scheme: true
+    number-sections: false
+    toc: true
+    toc-depth: 3
+    smooth-scroll: false
+    link-external-newwindow: false
+    link-external-icon: false
+    include-after-body: assets/embed.html
+    code-copy: true

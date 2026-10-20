@@ -1,0 +1,65 @@
+# Notes for tutors {.unnumbered}
+
+This appendix is for whoever runs the sessions and maintains the site.
+
+## Running the sessions
+
+- Keep the 10–20–10–5 shape described in [How the course works](how-it-works.qmd), and use the "In the session" list on each week's page as the agenda. The session introduces the week's material; the student does the reading afterwards, so nothing is assumed to have been read beforehand.
+- Open with the warm-up questions. They take two minutes, and the ones the student gets wrong tell you what to revisit.
+- The 10-minute app slot works best as prediction. Each app opens with a guided tour that asks for a prediction at every step; run it together the first time, then let the student explore.
+- Read the student's SEM log before each session; the "still unclear" items set the first ten minutes. Each week's log questions have model answers in a collapsed box. Encourage the student to write their own first.
+- The learning objectives at the top of each week are what the task and log questions check. If the student can do them, move on.
+- Weeks 7, 12 and 16 have checkpoints. If several items are not yet ticked, take an extra week rather than pressing on.
+
+## The sequence, and why it differs from Byrne's
+
+- **Week 0** bridges from regression: the same regressions refitted in Amos, the covariance matrix as the data, and measurement error.
+- **Chapter 3 is split** over Weeks 3 (pp. 69–101: estimates and overall fit) and 4 (pp. 102–114: misspecification and modification indices), because both are new and both matter.
+- **Reliability and validity (Week 6)** have their own week before second-order models.
+- **Screening, non-normality and missing data (Byrne's chapters 12 and 13)** come in Weeks 8 and 9, before the full structural model. The student should check their data before modelling it, and the real-world version of the practice dataset is built for these weeks.
+- **Ordinal items (Week 10)** are deliberately light: the idea and the consequences, not every estimator.
+- **MTMM and growth curves** are optional topics, to use if the student's project needs them.
+- **Weeks 12 and 16** introduce no new content. They are for consolidation, a checkpoint and the results draft.
+- **Task style fades** from worked examples (Weeks 0–4) to completion problems (5–7), guided application (8–15) and independent work (16–17).
+
+## The practice dataset
+
+The [Student Life Survey](dataset.qmd) is synthetic, so it raises no ethics or copyright issues. It was designed so that each technique in the course finds something real: a stress-buffering interaction, a mediated effect, two local misfits in the CFA, a non-invariant item across year groups, a group difference in a structural path, missing-at-random data and nonlinear growth. The answer key (the results the student should obtain each week) and the script that generated the data are in the `private/` folder of your copy of the project. That folder is excluded from Git, so they are not published.
+
+## Copyright
+
+The site is public. It links to Byrne's book and data files but does not copy them, and all app data are simulated. Keep it that way: do not add Byrne's figures, text or data files to the repository.
+
+## Maintaining the site
+
+The book is written in Quarto. Each page is a `.qmd` file:
+
+| Folder or file | Contents |
+|:--|:--|
+| `index.qmd`, `course/` | Welcome, how the course works, the dataset codebook, the Amos output guide, these notes |
+| `regression/` | Weeks R1–R6 and the readiness checklist |
+| `sem/` | Weeks 0–17 and the two optional topics |
+| `going-further/` | Short optional pages on advanced ideas, linked from the weeks that raise them |
+| `apps.qmd`, `resources.qmd`, `references.qmd` | Apps gallery, resources, reference list |
+| `references.bib` | All references, in BibTeX; cite them as `@key` |
+| `apps/` | The interactive apps, one folder each, plus shared code in `apps/shared/` |
+| `assets/` | Theme, citation style and the script that sizes embedded apps |
+| `.github/workflows/publish.yml` | Renders and publishes the book when you push |
+
+To preview locally, open the project in RStudio and run `quarto preview` in the Terminal tab (or use the Render button on any page).
+
+To publish, commit and push to the `main` branch. GitHub Actions renders the book and deploys it to GitHub Pages. In the repository settings, under **Pages**, the source must be set to **GitHub Actions** (a one-off step).
+
+## The apps
+
+Each app is a plain HTML page (`apps/<name>/index.html`) with its own `app.js`. They share:
+
+- `apps/shared/app.css`: colours (light and dark), layout and controls;
+- `apps/shared/stats.js`: random numbers, matrices, distributions, maximum-likelihood fitting and fit indices;
+- `apps/shared/chart.js`: accessible SVG charts;
+- `apps/shared/diagram.js`: path diagrams, used both in the apps and (as static SVG) in the regression pages;
+- `apps/shared/ui.js`: labelled controls, live announcements for screen readers, and messages to the book page for resizing and theme.
+
+The apps need no build step and no server: they also work when opened directly from the folder. To embed an app in a page, copy the `<figure class="app-embed">` block from any week's page and change the folder name.
+
+The statistical routines were checked against SciPy, including the χ², F, t and noncentral χ² distributions, the bivariate normal used for polychoric correlations, the RMSEA confidence interval, and the maximum-likelihood CFA fit. All apps were tested at phone and desktop widths, in light and dark themes, with the axe accessibility checker (WCAG 2.2 AA rules).

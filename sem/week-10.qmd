@@ -1,0 +1,91 @@
+# Week 10: Ordinal items {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @rhemtulla2012, introduction and discussion (about 45 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file
+
+App
+: Ordinal items and thresholds
+
+Task style
+: Application: apply the technique to the Student Life Survey (or your own data) with a checklist
+
+:::
+
+## By the end of this week you can
+
+- Explain the latent-response view of ordinal items and what a threshold is.
+- Judge when five-point items can be treated as continuous.
+- Know what Amos offers for ordered-categorical data.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. Define MAR in one sentence.
+2. With three first-order factors, why is the upper level of a second-order model just-identified? (Week 7)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Whether a value is missing depends only on observed variables, not on the missing value itself.
+2. The three factors give six variances and covariances, and the upper level estimates six parameters (three loadings and three residual variances), so nothing is left to test.
+
+</details>
+
+## This week in brief
+
+Likert-type items are ordinal. Treating them as continuous can weaken correlations and distort fit, especially with few categories or skewed responses. With five or more fairly symmetric categories, ML usually works well. Amos's option for ordered-categorical data uses Bayesian estimation; it is worth knowing it exists, but it is not needed for this course.
+
+## In the session
+
+- The latent-response view of ordinal items, with the app.
+- How many categories, and how much skew, before treating items as continuous becomes a problem.
+
+## After the session
+
+Read the core reading. Skim the categorical-data part of Byrne's chapter 5 (pp. 163–179) to see what the Bayesian approach involves.
+
+## Your task this week
+
+1. For the Student Life Survey items, note the number of categories and the skew of each scale. Which scale is most skewed, and in which direction?
+2. In the app, set five categories and a skew similar to that scale. How much does the Pearson correlation understate the latent correlation?
+3. **Decide:** is ML estimation acceptable for these data? Write a short justification citing @rhemtulla2012.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/ordinal/index.html" title="Ordinal items and thresholds (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/ordinal/index.html">Open the Ordinal items and thresholds on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. What is a threshold in the latent-response view?
+2. When do Pearson correlations of ordinal items understate the latent correlation most?
+3. Is ML acceptable for the Student Life Survey? Why?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. The point on the underlying continuous response at which a person moves from one category to the next.
+2. With few categories, and when items are skewed, especially in opposite directions.
+3. Probably yes: five categories, mostly symmetric scales, and a moderate ceiling only on support. Say so explicitly and note the support skew.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **The Bayesian approach in Amos:** Byrne, chapter 5, pp. 163–179, the categorical-data analysis in full.
+- **Other estimators:** @kline2023 covers estimation with ordinal data in other programs.

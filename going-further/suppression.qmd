@@ -1,0 +1,50 @@
+# Suppression {.unnumbered}
+
+*First raised in [R2](../regression/r2-multiple.qmd). Optional.*
+
+## What it is
+
+A **suppressor** is a predictor that improves a regression mainly by removing irrelevant variance from another predictor, rather than by predicting the outcome itself. The signs that suppression is happening are:
+
+- a predictor that is unrelated to the outcome on its own gets a clear coefficient once the other predictor is in the model;
+- a coefficient has the opposite sign to the predictor's correlation with the outcome; or
+- the predictors together explain more than the sum of what each explains alone, so the "shared" part of R² comes out negative.
+
+## Why it happens
+
+Suppose X1 is a knowledge test that predicts job performance, Y. Part of the test score reflects reading speed, X2, which has nothing to do with performance. Reading speed is uncorrelated with performance, but it is correlated with the test. Adding X2 to the model "subtracts" the reading-speed part of X1, so X1's remaining variance is a purer measure of knowledge and predicts better. X2 gets a *negative* weight, because for a given test score, a faster reader knows less.
+
+## A worked example
+
+Use the "Suppression" scenario in the [shared-variance app](../apps/shared-variance/index.html): r(Y, X1) = .50, r(Y, X2) = 0, r(X1, X2) = .60.
+
+| Model | Standardised coefficients | R² |
+|:--|:--|--:|
+| X1 alone | β1 = .50 | .25 |
+| X1 and X2 | β1 = .78, β2 = −.47 | .39 |
+
+The standardised coefficient for X1 is (r<sub>Y1</sub> − r<sub>Y2</sub> r<sub>12</sub>) / (1 − r<sub>12</sub>²) = .50 / .64 = .78. X2, which correlates zero with Y, raises R² from .25 to .39.
+
+
+::: {.callout-tip title="Try it"}
+The shared-variance explorer below opens on the Suppression scenario. Move r(X1, X2) and watch the negative weight for X2 and the "shared" part of R² turn negative.
+
+```{=html}
+<details class="try-app">
+  <summary>Try it here: Shared-variance explorer</summary>
+  <figure class="app-embed">
+    <iframe data-app src="../apps/shared-variance/index.html?scenario=suppression&amp;step=4" title="Shared-variance explorer (interactive app)" loading="lazy"></iframe>
+    <figcaption><a href="../apps/shared-variance/index.html?scenario=suppression&amp;step=4">Open the shared-variance explorer on its own page</a> for more space.</figcaption>
+  </figure>
+</details>
+```
+:::
+
+## Why it matters later
+
+- A sign reversal is not automatically suppression. It can also be a symptom of strong overlap between predictors, or of a mistake. Check the correlations before interpreting it.
+- In SEM, structural paths from strongly correlated latent variables (for example efficacy and engagement, which correlate about .71 in the Student Life Survey) can show the same patterns, sometimes with standardised paths above 1. Treat them with the same caution in [Week 11](../sem/week-11.qmd).
+
+## Reading
+
+- @cohen2003, the sections on suppression in the chapter on multiple regression with two or more predictors.

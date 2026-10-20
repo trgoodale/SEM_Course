@@ -1,0 +1,51 @@
+# Johnson–Neyman regions of significance {.unnumbered}
+
+*First raised in [R5](../regression/r5-moderation.qmd). Optional.*
+
+## What it is
+
+**Simple slopes** test the effect of X at a few chosen values of the moderator W, often the mean and one SD either side. The **Johnson–Neyman technique** turns this round: it finds the value(s) of W at which the effect of X stops (or starts) being significant. Every value of W on one side of the boundary has a significant effect; every value on the other side does not.
+
+## Why it helps
+
+The values "one SD above and below the mean" are arbitrary. The Johnson–Neyman boundary tells you, for the whole range of the moderator, where the effect can be distinguished from zero. The [interaction app](../apps/interaction/index.html) shades these regions.
+
+## A worked example
+
+In the Student Life Survey, the R5 model gives two ways of looking at the same interaction.
+
+**Stress as the predictor, support as the moderator.** The effect of stress on wellbeing is −0.54 at low support (−1 SD), −0.46 at average support and −0.37 at high support (+1 SD), all p < .001. The boundary is at support = 6.2, outside the 1 to 5 scale. So stress is significantly related to lower wellbeing **for every possible level of support**; support only softens the effect.
+
+**Support as the predictor, stress as the moderator.** The effect of support on wellbeing is essentially zero at stress = 1 (b = −0.02) and grows with stress (b = 0.19 at stress = 3; 0.40 at stress = 5). The boundary is at stress ≈ 2.14. Support is significantly related to wellbeing only for students above that level, about 85% of the sample.
+
+Both describe the same buffering effect. Which one to report depends on the question you are asking.
+
+
+::: {.callout-tip title="Try it"}
+The interaction plotter below opens with the Johnson–Neyman panel showing. The shading marks where the effect of X is significant; change b3 and the sample size and watch the boundary move.
+
+```{=html}
+<details class="try-app">
+  <summary>Try it here: Interaction plotter</summary>
+  <figure class="app-embed">
+    <iframe data-app src="../apps/interaction/index.html?step=4&amp;panel=jn" title="Interaction plotter (interactive app)" loading="lazy"></iframe>
+    <figcaption><a href="../apps/interaction/index.html?step=4&amp;panel=jn">Open the interaction plotter on its own page</a> for more space.</figcaption>
+  </figure>
+</details>
+```
+:::
+
+## Cautions
+
+- A boundary outside the observed range (like 6.2) should be reported as "significant across the observed range", not extrapolated.
+- The boundary is an estimate with sampling error. It is not a threshold that exists in the population.
+- Significance is not size: an effect just inside the region can be tiny.
+
+## Why it matters later
+
+Multigroup models in [Week 15](../sem/week-15.qmd) test whether a path differs between groups, which is moderation by a two-category variable. The questions are the same: where is the effect, and how big is it?
+
+## Reading
+
+- @preacher2006, with their online calculators.
+- @hayes2022: the PROCESS macro can report the Johnson–Neyman boundary.

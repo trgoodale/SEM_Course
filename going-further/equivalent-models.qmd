@@ -1,0 +1,38 @@
+# Equivalent models {.unnumbered}
+
+*First raised in [Week 4](../sem/week-04.qmd) and [Week 11](../sem/week-11.qmd). Optional.*
+
+## What it is
+
+Two models are **equivalent** when they imply exactly the same covariances for any data. They therefore always have the same χ², df and fit indices, but they tell different stories: arrows point different ways, or a path is replaced by a correlation.
+
+## Why it happens
+
+Fit compares the covariances a model implies with the covariances in the data. Different arrangements of arrows can reproduce the same covariances, so the data cannot tell them apart. The same is true of **equivalent modifications**: two different parameters with identical modification indices would improve fit by exactly the same amount.
+
+## A worked example
+
+Three models of support, stress and wellbeing, each leaving out one path, fitted to the Student Life Survey:
+
+| Model | χ²(1) |
+|:--|--:|
+| Support → stress → wellbeing | 28.9 |
+| Wellbeing → stress → support | 28.9 |
+| Stress → support and stress → wellbeing (stress as a common cause) | 28.9 |
+
+The fit is identical, to the decimal. (All three fit badly here, because the data need a direct link between support and wellbeing; they are equivalently wrong.) Only theory and design, not fit, can choose between a mediation story, its reverse, and a common-cause story.
+
+## What to do
+
+- Before fitting, ask which equivalent models exist, and say in your report why yours is more plausible [@maccallum1993].
+- Design helps: a variable measured earlier cannot be caused by one measured later, and a manipulated variable cannot be caused by the outcome.
+- When two modification indices are identical, choose by theory or do not choose.
+
+## Why it matters later
+
+The mediation model in [R6](../regression/r6-mediation.qmd) and the structural model in [Week 11](../sem/week-11.qmd) both have equivalent alternatives. This is why cross-sectional SEM supports a causal claim only as far as the assumptions behind the arrows do.
+
+## Reading
+
+- @maccallum1993.
+- @bollen2013 on what SEM can and cannot say about causes.

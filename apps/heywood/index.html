@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heywood case explorer · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-04.html" data-book-link>SEM Week 4</a> · <a href="../../going-further/heywood.html" data-book-link>Going further: Heywood cases</a></p>
+    <h1>Heywood case explorer</h1>
+    <p class="lead">A factor with three indicators is just identified: its three loadings are fixed entirely by the three correlations among the items. Change the correlations and watch what happens to the loadings and error variances, including when an error variance goes below zero.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Correlations among the three items</h2>
+      <div id="controls"></div>
+      <div class="btn-row" id="presets"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="res-h">
+        <h2 id="res-h">The one-factor solution</h2>
+        <div id="status"></div>
+        <div id="table"></div>
+      </section>
+      <figure class="chart">
+        <div id="diagram" class="chart-wrap"></div>
+        <figcaption>One factor with three items. Numbers on the arrows are standardised loadings; numbers beside the error terms are standardised error variances.</figcaption>
+      </figure>
+      <section class="panel" aria-labelledby="sim-h">
+        <h2 id="sim-h">Can sampling error alone produce one?</h2>
+        <p>Draw many samples from a population with the correlations above, fit the same model to each, and count how often any error variance comes out negative.</p>
+        <div id="sim-controls"></div>
+        <div class="btn-row" id="sim-buttons"></div>
+        <div id="sim-result" role="status"></div>
+      </section>
+      <details>
+        <summary>Why this happens</summary>
+        <p>With standardised items, each correlation equals the product of two loadings: r<sub>12</sub> = λ<sub>1</sub>λ<sub>2</sub>, r<sub>13</sub> = λ<sub>1</sub>λ<sub>3</sub>, r<sub>23</sub> = λ<sub>2</sub>λ<sub>3</sub>. Solving these gives</p>
+        <p class="formula">λ1² = r12 × r13 / r23
+λ2² = r12 × r23 / r13
+λ3² = r13 × r23 / r12
+error variance of item i = 1 − λi²</p>
+        <p>Nothing stops λ<sup>2</sup> exceeding 1. It happens when an item correlates more strongly with the other two than they correlate with each other: the model can only explain that by giving the item more than all of its own variance.</p>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Which item's loading is most sensitive to a fall in r23, and why?</li>
+      <li>A colleague's CFA shows a small negative error variance whose confidence interval includes 0, from a sample of 80. What is the most likely cause, and what would you report?</li>
+      <li>Why does a factor with only two indicators make Heywood cases even harder to diagnose?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Data in the sampling section are simulated.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

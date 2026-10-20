@@ -1,0 +1,100 @@
+# Week 8: Data screening, non-normality and the bootstrap {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 12, pp. 365–392 (about 90 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), **real-world file**
+
+App
+: Bootstrapping an indirect effect
+
+Task style
+: Application: apply the technique to the Student Life Survey (or your own data) with a checklist
+
+:::
+
+## By the end of this week you can
+
+- Screen survey data for impossible values, undeclared codes, careless responding and outliers.
+- Assess univariate and multivariate normality.
+- Use bootstrap standard errors and the Bollen–Stine p-value in Amos.
+- Write a short data-screening report.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. With three first-order factors, why does a second-order model fit identically to correlated factors?
+2. What does Mardia's coefficient measure?
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Its higher-order part is just-identified: three loadings replace three correlations.
+2. Multivariate kurtosis.
+
+</details>
+
+## This week in brief
+
+Real data need checking before any model is fitted. Errors, undeclared missing-value codes and careless responding distort everything that follows. Non-normality inflates χ² and shrinks standard errors under ML; the bootstrap gives standard errors and a test of overall fit that do not rely on normality.
+
+## In the session
+
+- A screening sequence: ranges and codes, reverse-scored items, careless responding, outliers, normality.
+- Bootstrapping in Amos: standard errors, confidence intervals and the Bollen–Stine p-value.
+
+## After the session
+
+Read the core reading. Open the real-world file and look through it before you change anything.
+
+## Your task this week
+
+Use the **real-world** file. Work through this checklist and keep notes for your report.
+
+1. Frequencies for every item: are all values between 1 and 5? Deal with anything that is not, and say how.
+2. Descriptives for `work_hours` and `commute`: are all values possible?
+3. Reverse-score WB5.
+4. Look for careless responding, such as identical answers to every item, including the negatively worded one.
+5. In Amos (complete cases only, for this step): request "Tests for normality and outliers". Note Mardia's coefficient and the cases farthest from the centroid.
+6. On the complete-case copy (the bootstrap, like the normality tests, needs complete data in Amos), fit your CFA with ML, then with 2,000 bootstrap samples and the Bollen–Stine test. Compare standard errors and p-values.
+7. Write a half-page screening report: what you found, what you did, and why.
+
+## Interactive app
+
+The guided tour includes the case of heavily skewed data, which is the reason Amos offers the bootstrap.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/bootstrap/index.html" title="Bootstrapping an indirect effect (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/bootstrap/index.html">Open the Bootstrapping an indirect effect on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Why is an undeclared missing-value code (such as 9) dangerous?
+2. Why does non-normality inflate χ²?
+3. When would you report bootstrap rather than ML standard errors?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. The software treats it as a real score. On a 1–5 item, a few 9s inflate the mean and variance and can distort correlations and model fit.
+2. The ML χ² assumes multivariate normality. With heavy tails (kurtosis), the statistic no longer follows the χ² distribution and is typically too large, so good models are rejected too often.
+3. When multivariate kurtosis is substantial. Report both the ML estimates and the bootstrap standard errors or confidence intervals, and the Bollen–Stine p-value for overall fit.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Going further:** [Satorra–Bentler and Bollen–Stine](../going-further/robust-chi-square.qmd), for what each correction does and which one Amos offers.
+- **How non-normality affects tests:** @curran1996.
+- **The bootstrap test of fit:** @bollen1992.
+- **A screening checklist:** [StatWiki: Data screening](https://statwiki.gaskination.com/index.php?title=Data_Prep).

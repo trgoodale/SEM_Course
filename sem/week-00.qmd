@@ -1,0 +1,104 @@
+# Week 0: From regression to SEM {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: Kenny's page on [path analysis](https://davidakenny.net/cm/pathanal.htm) (about 20 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file and the matrix file `student_life_matrix.sav`
+
+App
+: Attenuation simulator
+
+Task style
+: Worked example: reproduce, then change one thing and predict the result
+
+:::
+
+## By the end of this week you can
+
+- Fit a regression in Amos and match the SPSS results.
+- Explain why SEM estimates can be obtained from the covariance matrix alone.
+- Explain why a regression model has 0 degrees of freedom.
+- Explain how measurement error weakens relationships, and how latent variables address it.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What is the indirect effect in a simple mediation model?
+2. Which assumptions does a plot of residuals against predicted values check? (R4)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. a × b: the effect of X on Y that passes through M.
+2. Linearity and constant variance (homoscedasticity) of the errors.
+
+</details>
+
+## This week in brief
+
+A regression is already a path model: one outcome with arrows from its predictors. SEM fits models to the *covariance matrix* of the variables rather than to the raw scores, so the same estimates can be obtained from the matrix alone. SEM can also include latent variables, which separate a construct from the measurement error in its items. This week connects those ideas to what you already know.
+
+## The model as a path diagram
+
+In regression you use a scale score (for example, the mean of five stress items) as if it measured stress perfectly. In SEM the construct becomes a *latent* variable (an oval) measured by its items, each with its own error.
+
+```{=html}
+<figure class="path-diagram-figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 250" role="img" aria-labelledby="d-r6b-t d-r6b-d" class="path-diagram" style="max-width:480px;width:100%;height:auto;display:block;margin:0 auto"><title id="d-r6b-t">A latent variable measured by three items</title><desc id="d-r6b-d">An oval labelled Anxiety (latent) points to three rectangles, item 1, item 2 and item 3, with loadings λ1, λ2 and λ3. Each item has its own error term. This is how SEM separates the construct from measurement error.</desc><defs><marker id="d-r6b-an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-line, currentColor)"/></marker><marker id="d-r6b-ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-emph, #b3470b)"/></marker></defs><line x1="213.3" y1="72.6" x2="137.2" y2="137" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6b-an)"/><line x1="240" y1="75" x2="240" y2="137" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6b-an)"/><line x1="266.7" y1="72.6" x2="342.8" y2="137" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6b-an)"/><line x1="110" y1="210" x2="110" y2="183" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6b-an)"/><line x1="240" y1="210" x2="240" y2="183" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6b-an)"/><line x1="370" y1="210" x2="370" y2="183" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r6b-an)"/><ellipse cx="240" cy="50" rx="60" ry="23" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="240" y="55.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Anxiety</text><rect x="77" y="140" width="66" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="110" y="165.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">item 1</text><rect x="207" y="140" width="66" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="240" y="165.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">item 2</text><rect x="337" y="140" width="66" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="370" y="165.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">item 3</text><circle cx="110" cy="228" r="16" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="110" y="232.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e1</text><circle cx="240" cy="228" r="16" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="240" y="232.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e2</text><circle cx="370" cy="228" r="16" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="370" y="232.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e3</text><text x="167.5" y="100.1" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">λ1</text><text x="226" y="110.5" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">λ2</text><text x="313.8" y="98.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">λ3</text><text x="400" y="45" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:12px;">latent (oval)</text></svg><figcaption>A latent variable (oval) measured by three observed items (rectangles), each with its own error term.</figcaption></figure>
+```
+
+## In the session
+
+1. Fit the R2 regression (`stress`, `support` → `wellbeing`) in Amos and compare with SPSS.
+2. Fit it again from the matrix file and see that the estimates do not change.
+3. Draw the R6 mediation model in Amos: two equations estimated at once.
+4. Measurement error and latent variables, with the attenuation app.
+
+## After the session
+
+Read the core reading. If Amos is not installed on your own computer yet, install it and check that it opens the clean Student Life Survey file.
+
+## Your task this week
+
+1. Set up the R2 regression in Amos (observed variables only, with an error term on `wellbeing`) and run it on the clean file. You can draw it as in the session or, if your Amos has a Syntax tab, type the two lines given in [Where to find it in Amos](../course/amos-output.qmd#typing-a-model-instead-of-drawing-it). Check that the coefficients match SPSS.
+2. Run the same model using `student_life_matrix.sav`, which contains only the correlations, standard deviations and means. Confirm nothing changes.
+3. Optional until Week 2, when Amos is covered properly: draw the R6 mediation model (support → stress → wellbeing, plus support → wellbeing) and compare the estimates with your PROCESS results.
+4. Your scales have reliabilities of about .80. In the attenuation app, set both reliabilities to .80: how much would a true correlation of −.60 between stress and wellbeing be underestimated?
+5. Why does the regression model have 0 degrees of freedom? Write one sentence.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/attenuation/index.html" title="Attenuation simulator (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/attenuation/index.html">Open the Attenuation simulator on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Why can Amos estimate a regression from the covariance matrix alone?
+2. Why does a regression model have 0 degrees of freedom?
+3. How do latent variables deal with measurement error?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. The regression coefficients are functions of the variances and covariances (b = cov / var in the simple case). Raw scores add nothing that the matrix (plus means, if needed) does not already contain.
+2. It estimates exactly as many parameters as there are variances and covariances: every pair of variables is linked by a path or a correlation. It reproduces the data perfectly, so its fit cannot be tested.
+3. Each item is modelled as the construct plus its own error. The construct (the latent variable) carries only what the items share, so relationships between latent variables are not weakened by the items' unreliability.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **If Amos is new:** James Gaskin's [YouTube channel](http://www.youtube.com/Gaskination) has short introductory videos on drawing and running path models.
+- **For depth:** @kline2023, the chapters on regression fundamentals and on path models; the IBM *Amos User's Guide* (free from IBM), whose early examples are regressions.

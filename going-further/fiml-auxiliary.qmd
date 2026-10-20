@@ -1,0 +1,58 @@
+# FIML and auxiliary variables {.unnumbered}
+
+*First raised in [Week 9](../sem/week-09.qmd). Optional.*
+
+## What it is
+
+**Full information maximum likelihood (FIML)** fits the model to every case, using whatever each case has observed. It gives unbiased estimates when data are **missing at random (MAR)**: when the chance of being missing depends on things you have measured, not on the missing values themselves.
+
+The catch is in "things you have measured": FIML can only use information that is **in the model**. An **auxiliary variable** is a variable that predicts missingness or is correlated with the incomplete variables, included in the model only to make MAR plausible, not because it is part of your theory.
+
+## A worked example
+
+In the real-world Student Life file, a quarter of students skipped the wellbeing items, and students who skipped them work more hours of paid work on average (12.5 hours a week against 5.6). Paid work is also linked to lower wellbeing (r ≈ −.18). So the students with missing wellbeing are likely to have lower wellbeing than those who answered.
+
+Mean of WB1 to WB4, after recoding the 9s as missing:
+
+| Method | Mean wellbeing |
+|:--|--:|
+| Complete data (the clean file: the true value here) | 3.17 |
+| Listwise deletion | 3.20 |
+| FIML with the wellbeing items only | 3.21 |
+| FIML with `work_hours` as an auxiliary variable | 3.17 |
+
+FIML without the auxiliary variable is **no better than listwise deletion**: it has no information about why data are missing. With `work_hours` in the model, the bias disappears. The difference is small here, but it grows with the amount of missing data and the strength of the relationships.
+
+
+::: {.callout-tip title="Try it"}
+The missing-data simulator below opens at the step "Leave X out of the model". Under MAR, compare "FIML without X" with "FIML with X in the model": X plays the part of the auxiliary variable.
+
+```{=html}
+<details class="try-app">
+  <summary>Try it here: Missing-data simulator</summary>
+  <figure class="app-embed">
+    <iframe data-app src="../apps/missing-data/index.html?step=4" title="Missing-data simulator (interactive app)" loading="lazy"></iframe>
+    <figcaption><a href="../apps/missing-data/index.html?step=4">Open the missing-data simulator on its own page</a> for more space.</figcaption>
+  </figure>
+</details>
+```
+:::
+
+## How to add an auxiliary variable in Amos
+
+1. Tick **Estimate means and intercepts** (Analysis Properties › Estimation).
+2. Add the auxiliary variable as an observed variable.
+3. Use the "saturated correlates" approach [@graham2003]: correlate the auxiliary variable with every exogenous observed variable, with the error terms of every endogenous observed variable (in a CFA, the item error terms), and with any other auxiliary variables. This leaves the model's own parameters and df unchanged.
+
+In a CFA, step 3 means many arrows. The **Syntax** tab saves time: one line such as `work_hours <> e_WB1` per item.
+
+## Remember
+
+- Choose auxiliary variables before looking at the results: anything correlated with the incomplete variables or with missingness. Including a few extra is generally safe [@collins2001].
+- In Amos, modification indices, normality tests and the bootstrap are not available with missing data. Do screening and diagnostics on a complete-case copy, then fit the final model with FIML.
+
+## Reading
+
+- @enders2022, the chapters on maximum likelihood and on auxiliary variables.
+- @graham2003.
+- @collins2001.

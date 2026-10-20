@@ -1,0 +1,96 @@
+# Week 4: CFA, residuals and modification indices {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 3, model misspecification and post hoc analyses, pp. 102–114 (about 60 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file: your Week 3 CFA ([diagram](week-03.qmd#the-model-as-a-path-diagram))
+
+App
+: Residuals and modification indices
+
+Task style
+: Worked example: reproduce, then change one thing and predict the result
+
+:::
+
+## By the end of this week you can
+
+- Read standardised residuals and modification indices to find where a model misfits.
+- Judge whether freeing a parameter is theoretically defensible.
+- Explain capitalising on chance.
+- Recognise equivalent modifications.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. Why is χ² significant for almost every model in a large sample?
+2. How many knowns does a model with 23 observed variables have? (Week 1)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. It grows with N, so trivial misfit is detected.
+2. 23 × 24 / 2 = 276 variances and covariances.
+
+</details>
+
+## This week in brief
+
+A model can fit well overall and still misfit in particular places. Standardised residuals and modification indices (MIs) show where. Freeing parameters because of large MIs always improves fit, but changes made only for that reason often capitalise on chance and do not replicate.
+
+## In the session
+
+- Checking estimates for sense: signs, sizes, Heywood cases, standard errors.
+- Standardised residuals and what a large one means.
+- Modification indices and expected parameter change; equivalent modifications; when freeing a parameter is defensible.
+
+## After the session
+
+Read the core reading. Do the guided tour in the app before you start the task.
+
+## Your task this week
+
+1. In your Student Life CFA, request modification indices (Analysis Properties > Output). Find the two largest. Amos lists them under Covariances and under Regression Weights. A covariance between an item's error and a factor (for example `e_WB5r <--> STR`) means that item may also reflect that factor: read it as a possible cross-loading.
+2. For each, read the wording of the items involved (see the [codebook](../course/dataset.qmd)). Is there a substantive reason for the change?
+3. Free the one you find most defensible, rerun, and record the change in χ² and df. Compare the change with the MI.
+4. In the app, set the population to "Correctly specified", free the largest MI three times, and test on a new sample.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/modification-indices/index.html" title="Residuals and modification indices (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/modification-indices/index.html">Open the Residuals and modification indices on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. What is a modification index, and what is the expected parameter change?
+2. Why should every freed parameter be justified by theory?
+3. Two parameters have identical MIs. What does that tell you?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. The MI estimates how much χ² would fall if one fixed parameter were freed. The expected parameter change estimates the value that parameter would take.
+2. MIs respond to chance features of the sample as well as real misfit. Without a substantive reason, a freed parameter may not hold in new data, and the model becomes a description of this sample rather than a test of a theory.
+3. They are equivalent modifications: either would improve fit by the same amount. The data cannot choose between them; only theory can.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **Going further:** [equivalent models](../going-further/equivalent-models.qmd), for why two modifications can have identical MIs.
+- **Going further:** [Heywood cases](../going-further/heywood.qmd), if any variance in your output is negative.
+- **The classic demonstration:** @maccallum1992.
+- **Practical advice:** Kenny's page on [respecification](https://davidakenny.net/cm/respec.htm); @brown2015, the chapter on respecifying CFA models.

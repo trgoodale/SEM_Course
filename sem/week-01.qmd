@@ -1,0 +1,99 @@
+# Week 1: SEM basics {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 1, pp. 3–15 (about 90 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd) (to sketch a model; no analysis)
+
+App
+: Identification and degrees of freedom
+
+Task style
+: Worked example: reproduce, then change one thing and predict the result
+
+:::
+
+## By the end of this week you can
+
+- Distinguish the measurement model from the structural model.
+- Read and draw the symbols of a path diagram.
+- Count knowns and unknowns for a simple model.
+- Explain why every latent variable needs its scale set.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. Why can SEM work from the covariance matrix?
+2. What makes two regression models nested? (R3)
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Its estimates are functions of the variances and covariances; the raw scores add nothing more.
+2. One can be obtained from the other by fixing some of its parameters, for example setting two coefficients to zero.
+
+</details>
+
+## This week in brief
+
+SEM combines a *measurement model* (how latent variables are measured by observed items) with a *structural model* (how latent variables relate to each other). A model can be estimated only if it is *identified*: the data must provide at least as many pieces of information (knowns) as the model has free parameters (unknowns).
+
+## The model as a path diagram
+
+```{=html}
+<figure class="path-diagram-figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 664 285" role="img" aria-labelledby="d-sem1-t d-sem1-d" class="path-diagram" style="max-width:664px;width:100%;height:auto;display:block;margin:0 auto"><title id="d-sem1-t">Two-factor confirmatory factor analysis</title><desc id="d-sem1-d">Two latent factors, Stress and Support, drawn as ovals and connected by a curved two-headed arrow. Stress points to its five items STR1 to STR5 and Support to its four items SUP1 to SUP4, drawn as rectangles. Each item has its own error term. The first loading of each factor is fixed to 1 to set its scale.</desc><defs><marker id="d-sem1-an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-line, currentColor)"/></marker><marker id="d-sem1-ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-emph, #b3470b)"/></marker></defs><line x1="170.3" y1="100.9" x2="94.6" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="71" y1="240" x2="71" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="181.4" y1="103.1" x2="144.8" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="133" y1="240" x2="133" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="195" y1="104" x2="195" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="195" y1="240" x2="195" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="208.6" y1="103.1" x2="245.2" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="257" y1="240" x2="257" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="219.7" y1="100.9" x2="295.4" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="319" y1="240" x2="319" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="480.4" y1="102.1" x2="424.7" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="407" y1="240" x2="407" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="493" y1="103.8" x2="474.9" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="469" y1="240" x2="469" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="507" y1="103.8" x2="525.1" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="531" y1="240" x2="531" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="519.6" y1="102.1" x2="575.3" y2="165" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><line x1="593" y1="240" x2="593" y2="205" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-sem1-an)"/><path d="M233.7,64.8 Q347.5,20 460.2,64.4" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-start="url(#d-sem1-an)" marker-end="url(#d-sem1-an)"/><ellipse cx="195" cy="80" rx="48" ry="22" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="195" y="85.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Stress</text><rect x="44" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="71" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">STR1</text><circle cx="71" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="71" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="106" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="133" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">STR2</text><circle cx="133" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="133" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="168" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="195" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">STR3</text><circle cx="195" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="195" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="230" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="257" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">STR4</text><circle cx="257" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="257" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="292" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="319" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">STR5</text><circle cx="319" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="319" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><ellipse cx="500" cy="80" rx="48" ry="22" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="500" y="85.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Support</text><rect x="380" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="407" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">SUP1</text><circle cx="407" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="407" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="442" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="469" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">SUP2</text><circle cx="469" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="469" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="504" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="531" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">SUP3</text><circle cx="531" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="531" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><rect x="566" y="168" width="54" height="34" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="593" y="190.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">SUP4</text><circle cx="593" cy="255" r="13" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="593" y="259.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><text x="134.5" y="147.5" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">1</text><text x="456.5" y="147.2" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">1</text><text x="347.2" y="32.8" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">covariance</text></svg><figcaption>A two-factor measurement model for two Student Life Survey scales. The 1 on one loading per factor sets the factor's scale.</figcaption></figure>
+```
+
+## In the session
+
+- Path-diagram symbols, using the diagram above.
+- Measurement versus structural model.
+- Counting knowns and unknowns, and setting a latent variable's scale, with the app.
+
+## After the session
+
+Read the core reading. Keep the path diagram above beside you: everything in the chapter can be located on it.
+
+## Your task this week
+
+1. Count the knowns and unknowns for the two-factor model above (stress and support, nine items). How many degrees of freedom does it have?
+2. Check your count with the app (two factors, five and four indicators).
+3. Redraw one of Byrne's chapter 1 figures by hand and mark each parameter as free or fixed.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/identification/index.html" title="Identification and degrees of freedom (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/identification/index.html">Open the Identification and degrees of freedom on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. What is the difference between the measurement model and the structural model?
+2. How many knowns does a model with nine observed variables have?
+3. What are the two common ways of setting a latent variable's scale in Amos?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. The measurement model links each latent variable to its items (loadings and error variances). The structural model specifies the relationships among the latent variables (paths and covariances).
+2. 9 × 10 / 2 = 45: nine variances and 36 covariances.
+3. Fix one loading to 1 (a marker or reference item, Amos's default), or fix the factor's variance to 1.
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **If the terms are still unfamiliar:** Kenny's [SEM basics](https://davidakenny.net/cm/basics.htm) defines exogenous and endogenous variables, disturbances and degrees of freedom.
+- **For context:** @maccallum2000, a readable overview of how SEM is used, and misused, in psychology.

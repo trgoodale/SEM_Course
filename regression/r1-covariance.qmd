@@ -1,0 +1,109 @@
+# R1: Covariance and simple regression {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @field2024, the linear model (regression) chapter: the sections on a single predictor (about 60–90 minutes)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file: `stress` and `wellbeing`
+
+App
+: Least-squares line
+
+Task style
+: Worked example: reproduce, then change one thing and predict the result
+
+:::
+
+## By the end of this week you can
+
+- Interpret the slope, intercept and R² of a simple regression in words.
+- Explain what least squares minimises.
+- Explain why, with standardised variables, the slope equals the correlation.
+- Read and draw a simple path diagram.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. What does a correlation of −.50 tell you about two variables?
+2. What does the variance of a variable measure?
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. They are moderately related, and as one goes up the other tends to go down. It says nothing about cause, and nothing about the size of change in original units.
+2. How spread out its values are: the average squared distance from the mean.
+
+</details>
+
+## This week in brief
+
+A regression line summarises how two variables vary together. Its slope depends only on how much they covary and how much the predictor varies, and when both variables are standardised the slope is simply their correlation. Every arrow in the models later in this course is a coefficient of this kind.
+
+## The model as a path diagram
+
+From this week on, each model is also drawn as a *path diagram*, the way Amos draws models:
+
+- **Rectangles** are observed (measured) variables.
+- **Circles** are unobserved variables. In regression the only one is the error term, e: everything about Y that X does not explain.
+- A **single-headed arrow** is a regression path: the variable at the tail predicts the variable at the head. Its label is the coefficient.
+- A **curved two-headed arrow** (from R2) is a correlation, with no claim about direction.
+
+(The 1 on the error arrow just sets the scale of e. You will meet it again in Amos.)
+
+```{=html}
+<figure class="path-diagram-figure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 130" role="img" aria-labelledby="d-r1-t d-r1-d" class="path-diagram" style="max-width:440px;width:100%;height:auto;display:block;margin:0 auto"><title id="d-r1-t">Simple regression as a path diagram</title><desc id="d-r1-d">X is drawn as a rectangle with a single-headed arrow, labelled b, pointing to Y. A circle labelled e, the error term, also points to Y, with its path fixed to 1.</desc><defs><marker id="d-r1-an" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-line, currentColor)"/></marker><marker id="d-r1-ae" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0L10,5L0,10Z" style="fill:var(--pd-emph, #b3470b)"/></marker></defs><line x1="100" y1="60" x2="249" y2="60" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r1-an)"/><line x1="362" y1="60" x2="311" y2="60" style="stroke:var(--pd-line, currentColor);fill:none;stroke-width:1.8;" marker-end="url(#d-r1-an)"/><rect x="42" y="40" width="56" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="70" y="65.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">X</text><rect x="252" y="40" width="56" height="40" rx="3" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="280" y="65.3" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:15px;font-weight:600">Y</text><circle cx="380" cy="60" r="16" style="stroke:var(--pd-line, currentColor);stroke-width:1.8;fill:var(--pd-fill, transparent)"/><text x="380" y="64.6" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:13px;font-weight:600">e</text><text x="174.5" y="76.5" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">b</text><text x="336.5" y="52.5" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:14px;font-weight:600;paint-order:stroke;stroke:var(--pd-bg, #fff);stroke-width:4px;stroke-linejoin:round">1</text><text x="70" y="112" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:12px;">observed predictor</text><text x="280" y="112" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:12px;">observed outcome</text><text x="380" y="100" text-anchor="middle" style="fill:var(--pd-text, currentColor);font-size:12px;">error</text></svg><figcaption>Simple regression: Y = a + bX + e.</figcaption></figure>
+```
+
+## In the session
+
+- What least squares minimises, with the app.
+- Reading the SPSS output for a simple regression: b, its standard error, the intercept and R².
+- Standardised versus unstandardised slopes, and when to report each.
+
+## After the session
+
+Read the core reading to consolidate what we covered, then do the task and the app's guided tour.
+
+## Your task this week
+
+1. Open the clean Student Life Survey file in SPSS. **Before running anything, predict** whether the slope of `wellbeing` on `stress` will be positive or negative, and roughly how large.
+2. Run the regression. Write one sentence each interpreting b, the intercept and R². Is the intercept (the predicted wellbeing when stress = 0) meaningful here, given that stress is scored 1 to 5?
+3. Standardise both variables (Analyze > Descriptive Statistics > Descriptives, "Save standardized values"), refit, and compare the new slope with the correlation between the two variables.
+4. Draw the model as a path diagram and label the arrow with your b.
+
+## Interactive app
+
+Work through the guided tour at the top of the app first, then explore.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/least-squares/index.html" title="Least-squares line (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/least-squares/index.html">Open the Least-squares line on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. In your own words, what does the slope tell you, and what does R² tell you?
+2. Why is the standardised slope equal to r in simple regression?
+3. Is the intercept meaningful in your model? Why or why not?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. The slope is the expected change in Y for a one-unit increase in X: here, how much lower wellbeing is, on average, for each extra point of stress. R² is the proportion of the variance in Y that the line accounts for. A steep slope can go with a low R² if the points scatter widely around the line.
+2. The slope is cov(X, Y) / var(X). When both variables are standardised, var(X) = 1 and cov(X, Y) is the correlation, so the slope is r.
+3. Not really. It is the predicted wellbeing at stress = 0, but stress is scored from 1 to 5, so 0 lies outside the data. Intercepts are meaningful only when 0 is a real value of the predictor, which is one reason for centring later (R5).
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **If least squares is still unclear:** StatQuest (Josh Starmer) on YouTube has a short visual video on fitting a line and on R².
+- **For a second explanation:** @gelman2020, chapters 6–8 (free PDF), or David Kenny's page on [multiple regression](https://davidakenny.net/cm/mr.htm), which also covers the simple case.

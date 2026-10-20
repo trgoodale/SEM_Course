@@ -1,0 +1,45 @@
+# Common method variance {.unnumbered}
+
+*First raised in the [MTMM topic](../sem/optional-mtmm.qmd) and [Week 17](../sem/week-17.qmd). Optional.*
+
+## What it is
+
+**Common method variance** is variance that measures share because of *how* they were collected, not because of what they measure. When every variable comes from the same people, on the same questionnaire, at the same time, part of each correlation can come from the method: response styles (agreeing with everything, avoiding the extremes), mood on the day, or wanting to appear consistent [@podsakoff2003]. The result is usually inflated correlations, and so inflated paths.
+
+## Why it matters here
+
+The Student Life Survey is exactly this kind of design: five self-report scales, one questionnaire, one occasion. So is much thesis research.
+
+## Remedies
+
+**Design first** [@podsakoff2003]: collect predictors and outcomes from different sources or at different times, assure anonymity, vary response formats, and separate scales that could prime each other.
+
+**Statistical checks**, with care:
+
+- **Harman's single-factor test.** Fit one factor to all items; if it fits badly, or the first factor explains less than half the variance, people conclude there is no method problem. In the Student Life Survey, a single factor fits very badly (CFI = .61, RMSEA = .11) and the first unrotated component explains 28% of the variance. But this test cannot detect a method factor that sits alongside the substantive factors, and @podsakoff2003 advise against relying on it.
+- **A latent method factor.** Add a factor that loads on every item, alongside the substantive factors, and see whether the substantive paths change. These models are often hard to identify and to interpret.
+- **Multiple methods.** The multitrait–multimethod design ([optional topic](../sem/optional-mtmm.qmd)) separates trait and method variance properly, but it needs each construct to be measured in more than one way.
+
+
+::: {.callout-tip title="Try it"}
+The MTMM explorer below opens with strong method effects: correlations between different traits measured by the same method now exceed the validity values.
+
+```{=html}
+<details class="try-app">
+  <summary>Try it here: MTMM explorer</summary>
+  <figure class="app-embed">
+    <iframe data-app src="../apps/mtmm/index.html?lt=0.5&amp;lm=0.6&amp;step=2" title="MTMM explorer (interactive app)" loading="lazy"></iframe>
+    <figcaption><a href="../apps/mtmm/index.html?lt=0.5&amp;lm=0.6&amp;step=2">Open the MTMM explorer on its own page</a> for more space.</figcaption>
+  </figure>
+</details>
+```
+:::
+
+## A note on the practice data
+
+The Student Life Survey was generated without any method effect, so there is none to find. Real data give you no such guarantee. That is why design matters more than any test.
+
+## Reading
+
+- @podsakoff2003.
+- @campbell1959, the original multitrait–multimethod paper.

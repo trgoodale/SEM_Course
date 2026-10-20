@@ -1,0 +1,26 @@
+/*-- scss:defaults --*/
+$link-color: #8cc4ff !default;
+
+/*-- scss:rules --*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+iframe:focus-visible,
+[tabindex]:focus-visible {
+  outline-color: #8cc4ff;
+}
+
+// Darkly's muted grey is too faint on dark backgrounds; lighten it (WCAG 1.4.3)
+.nav-page-text,
+.breadcrumb-item, .breadcrumb-item a,
+.quarto-title-breadcrumbs .breadcrumb-item a,
+.text-muted, figcaption, .figure-caption {
+  color: #c3c8ce !important;
+}
+
+:root { --pd-emph: #ff9b5e; }
+
+// Inline code: keep a dark chip so white text stays readable everywhere
+:not(pre) > code { background-color: rgba(255, 255, 255, 0.12) !important; color: #f2f2f2 !important; }

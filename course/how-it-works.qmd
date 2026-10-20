@@ -1,0 +1,84 @@
+# How the course works {.unnumbered}
+
+The course runs weekly: a 45-minute face-to-face session, then three to four hours of your own work before the next session. Regression comes first (six weeks), then SEM (eighteen weeks). No hand calculation is expected at any point; you will run analyses in SPSS and Amos and use the apps to see what is going on.
+
+## The weekly session
+
+| Minutes | What happens |
+|:--|:--|
+| 10 | The warm-up questions, then you report back on last week's task: what ran, what did not, and one question. |
+| 20 | We go through the week's new material, usually with Amos open and the chapter's data loaded, so you are ready to work on it alone. |
+| 10 | An app or a "predict the output" exercise: decide what will happen before running it. |
+| 5 | We agree this week's task and check it is clear. |
+
+## Your week
+
+You do not need to prepare before a session. New material is introduced in the session, and the reading comes afterwards, while it is fresh. The exceptions are the consolidation weeks (12 and 16) and the capstone (Week 17): the page for the week before tells you what to prepare.
+
+After the session:
+
+1. **Read** the one core reading. Each page gives an estimated time and says what to focus on.
+2. **Reproduce** the worked analysis in SPSS or Amos until your output matches the book.
+3. **Do the task.** The style changes as you gain experience (below).
+4. **Use the app.** Start with its guided tour: each step asks you to predict what will happen before you move a control. Then explore freely.
+5. **Write in your SEM log** (below), and only then open the model answers.
+
+The warm-up questions at the top of each page are for the start of the session. Answer them from memory; getting one wrong is useful, because it shows what to revisit.
+
+The extra resources each week are optional, and each says when it is worth reading. Use them when the core reading has not clicked, not as extra homework. Some weeks also link to a [Going further](../going-further/index.qmd) page, a short optional explanation of an idea the week only mentions.
+
+## How the tasks change
+
+| Weeks | Task style |
+|:--|:--|
+| R1–R6, 0–4 | **Worked example:** reproduce an analysis, then change one thing and predict the result |
+| 5–7 | **Completion:** reproduce, then make and justify a decision yourself |
+| 8–15 | **Application:** apply the technique to the Student Life Survey (or your own data), with a checklist |
+| 16–17 | **Independent:** you plan and run the analysis yourself, using the capstone rubric |
+
+Three checkpoints (Weeks 7, 12 and 16) are short self-checks with your tutor. They are not graded; they decide whether to move on or spend another week.
+
+## Your SEM log
+
+Keep a running document with one entry per week. Each entry should have:
+
+- one paragraph on what you learned,
+- what is still unclear (bring this to the session), and
+- your answers to the week's log questions.
+
+From Week 12 you also start a results draft for the Student Life Survey (or your own data), adding a section each week. By [Week 17](../sem/week-17.qmd) it is a complete results section, assessed against the [capstone rubric](../sem/week-17.qmd#capstone-rubric).
+
+## Materials
+
+- **SPSS**, with Andrew Hayes's free PROCESS macro for the moderation and mediation weeks (R5 and R6).
+- **Amos.** It needs its own licence and runs only on Windows. On a Mac, use a university lab or a Windows virtual machine.
+- **The main texts.** For regression, @field2024 or @darlington2017. For SEM, @byrne2016, with @kline2023 as a conceptual companion. Kline's chapter numbers differ between editions, so readings below refer to his chapters by topic.
+- **Byrne's data files**, free from the [book's Routledge page](https://www.routledge.com/9781138797031).
+- **A practice dataset.** If you do not have data of your own yet, use the [Student Life Survey](dataset.qmd), a synthetic dataset designed for this course and used from R1 to the capstone. Every week's task uses it (or your own data) alongside Byrne's examples. [Where to find it in Amos](amos-output.qmd) is a one-page guide to the options and output you will use most.
+
+## Using your own data
+
+Every task is written for the [Student Life Survey](dataset.qmd), and the model answers and warm-ups assume it. If you have data of your own, keep doing each task on the Student Life Survey first, so you can check your work against the model answers, and then repeat it on your data. That second run is where the real learning happens, because you have to make the decisions yourself.
+
+**When to start.** Any time, but your data are most useful from Week 8 onwards, when the tasks shift to applying each technique. Before then, the clean practice data let you concentrate on learning Amos.
+
+**Translating a task.** Each task gives the Student Life variables a role. Find the variable in your data that plays the same role:
+
+| In the Student Life Survey | Look in your data for |
+|:--|:--|
+| `wellbeing` as the outcome; `stress` and `support` as predictors (R1–R4) | A continuous outcome and two or more predictors you have a reason to include |
+| Support buffering stress (R5) | A variable that might change the strength of another's effect |
+| Stress linking support to wellbeing (R6, Week 11) | A plausible mechanism between a predictor and an outcome, with a theory for the order |
+| The five multi-item scales (Weeks 3–7) | Scales with at least three items each, ideally four or more |
+| First-year and later-year students (Weeks 13–15) | A grouping variable with a reasonable number of people in each group |
+| Stress at four points in the semester (optional growth topic) | The same measure on at least three occasions |
+
+If your data have no counterpart for a task, do that task on the Student Life Survey only.
+
+**Size.** SEM needs reasonably large samples. There is no single rule. Common guidance treats about 200 cases as a minimum for a typical CFA, and more for complex models, small loadings or non-normal data. Multigroup comparisons need enough cases in each group. If your sample is small, discuss it with your tutor before Week 11.
+
+**Keep your data private.** This course is published as a public website. Never put your own data files in the course folder or its repository; keep them where your ethics approval and data-management plan say they should be. The apps never upload anything, but do not paste identifiable data into them either.
+
+## If time is short
+
+In the regression block, R1, R2, R3 and R6 are the essentials for SEM; R4 and R5 can be combined. In the SEM block, Week 10 (ordinal items) can be shortened to the app and the log questions, and the two optional topics (MTMM and growth curves) can be left until your own project needs them. Do not skip the consolidation weeks (12 and 16): they are where the earlier material is pulled together.

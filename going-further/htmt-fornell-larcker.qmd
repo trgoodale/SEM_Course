@@ -1,0 +1,54 @@
+# Discriminant validity: HTMT and Fornell–Larcker {.unnumbered}
+
+*First raised in [Week 6](../sem/week-06.qmd). Optional.*
+
+## What it is
+
+**Discriminant validity** asks whether two scales measure different things. Two common checks are:
+
+- **Fornell–Larcker** [@fornell1981]: the square root of each factor's AVE should be larger than its correlations with other factors. Equivalently, each factor should share more variance with its own items than with another factor.
+- **HTMT** [@henseler2015]: the average correlation between items of *different* scales, divided by the geometric mean of the average correlations *within* each scale. Values below .85 (or .90 for conceptually close constructs) are taken as acceptable.
+
+## A worked example: the criteria disagree
+
+Efficacy and engagement in the Student Life Survey (five-factor CFA, clean file):
+
+| | Efficacy | Engagement |
+|:--|--:|--:|
+| AVE | .49 | .43 |
+| √AVE | .70 | .65 |
+| Correlation between the two factors | .71 | |
+| Squared correlation (shared variance) | .51 | |
+| HTMT for the pair | .71 | |
+
+**Fornell–Larcker fails**: the correlation of .71 is larger than both √AVEs. **HTMT passes**: .71 is well below .85.
+
+
+::: {.callout-tip title="Try it"}
+The reliability and validity calculator below opens with the Student Life Survey values loaded, and computes CR, AVE, the Fornell–Larcker matrix and HTMT from the loadings, the factor correlation and the item correlations.
+
+```{=html}
+<details class="try-app">
+  <summary>Try it here: Reliability and validity calculator</summary>
+  <figure class="app-embed">
+    <iframe data-app src="../apps/reliability-validity/index.html?example=student-life" title="Reliability and validity calculator (interactive app)" loading="lazy"></iframe>
+    <figcaption><a href="../apps/reliability-validity/index.html?example=student-life">Open the reliability and validity calculator on its own page</a> for more space.</figcaption>
+  </figure>
+</details>
+```
+:::
+
+## Why they disagree
+
+Fornell–Larcker depends on AVE, and AVE is low when loadings are moderate (here about .65 to .70), even if CR is a respectable .79. Notice that every factor in the Student Life Survey has an AVE below .50 while its CR is about .80: several moderate items make a reliable scale without any single item being strongly tied to it. HTMT compares correlations directly and does not depend on AVE. In simulations, the Fornell–Larcker criterion was poor at detecting a genuine lack of discriminant validity, which is why HTMT was proposed [@henseler2015].
+
+## What to do
+
+- Report both, and say which you rely on and why.
+- Check that the confidence interval for the factor correlation stays clearly below 1. A further check is to fix the correlation to 1 and test the change in χ².
+- Remember the theory: efficacy and engagement are expected to be strongly related. A correlation of .71 between distinct but related constructs is plausible.
+
+## Reading
+
+- @henseler2015.
+- @fornell1981.

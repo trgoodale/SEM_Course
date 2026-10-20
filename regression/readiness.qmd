@@ -1,0 +1,15 @@
+# Readiness checklist {.unnumbered}
+
+Use this list twice. **Before R1**, as a self-test: anything you can already do without notes, you can skim. **After R6**, as a check: you are ready for [Week 0](../sem/week-00.qmd) when you can do each item. Anything you cannot yet do is worth ten minutes at the start of Week 0.
+
+- [ ] Explain what covariance and correlation are, and how a standardised slope relates to r.
+- [ ] Explain in one sentence what "holding X2 constant" means for the coefficient of X1.
+- [ ] Say when to report standardised and when to report unstandardised coefficients.
+- [ ] Compare two nested regression models and interpret the ΔR² F test.
+- [ ] Read a residual plot and name which assumption it tests.
+- [ ] Explain why normality applies to the residuals, not to the raw variables.
+- [ ] Test and probe an interaction, including what centring changes and what it does not.
+- [ ] Dummy-code a categorical predictor, and test whether a slope differs between two groups.
+- [ ] Estimate an indirect effect with a bootstrapped confidence interval, and state the causal assumptions it needs.
+
+The tick boxes are for your own use; they are not saved.

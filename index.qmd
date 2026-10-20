@@ -1,0 +1,32 @@
+# Welcome {.unnumbered}
+
+This guide takes you from the regression you already know to structural equation modelling (SEM) in IBM SPSS Amos. It has two blocks:
+
+| Block | Weeks | What it covers |
+|:--|:--|:--|
+| [Regression essentials](regression/index.qmd) | R1–R6 | The parts of regression that SEM reuses: partial coefficients, model comparison, assumptions, moderation and mediation |
+| [SEM with Amos](sem/index.qmd) | 0–17 | A bridge week from regression to path analysis, then Byrne's *Structural Equation Modeling with Amos* [-@byrne2016], ending with a capstone analysis |
+
+Each week has a 45-minute face-to-face session and about three to four hours of your own work. [How the course works](course/how-it-works.qmd) explains the routine.
+
+## What is on each week's page
+
+Every week follows the same pattern, so you always know where to look.
+
+- **A summary box:** the one core reading with an estimated time, the data, the app and the style of this week's task.
+- **By the end of this week you can:** what you should be able to do. The task and log questions check exactly these.
+- **Warm-up:** two or three quick questions on earlier weeks, answered from memory at the start of the session.
+- **This week in brief** and **In the session:** the new material we cover together.
+- **After the session:** the reading, and what to focus on in it.
+- **Your task this week:** one concrete piece of work in SPSS or Amos, usually with the [Student Life Survey](course/dataset.qmd).
+- **Interactive app:** a short guided tour, then free exploration. Each app also works on its own, full screen; see [all apps](apps.qmd).
+- **For your SEM log:** questions to answer in your own words, with model answers to compare against afterwards.
+- **Extra resources:** optional, each labelled with when it is worth reading. Some link to a [Going further](going-further/index.qmd) page that explains an advanced idea in more detail.
+
+## Software and data
+
+You will need SPSS and Amos. Amos needs its own licence and runs only on Windows. Byrne's data files are free from the [book's page on the Routledge website](https://www.routledge.com/9781138797031); they are not copied here. The apps run in any modern browser on a computer, tablet or phone, and none of them sends data anywhere.
+
+## Accessibility
+
+The guide and the apps are designed to meet WCAG 2.2 level AA. Every app control works with a keyboard and has a visible label. Charts have text descriptions, and the key numbers are always available as text or tables. The apps follow your device's light or dark setting, and inside the book they follow the book's theme switch. If anything does not work for you, please tell your tutor.

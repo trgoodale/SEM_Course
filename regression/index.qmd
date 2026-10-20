@@ -1,0 +1,18 @@
+# Regression essentials {.unnumbered}
+
+Six weeks revise the regression ideas that SEM is built on. Before you start, try the [readiness checklist](readiness.qmd) as a quick self-test: if you can already do everything for a week, skim that week and do only its task.
+
+| Week | Topic | Why it matters later |
+|:--|:--|:--|
+| [R1](r1-covariance.qmd) | Covariance and simple regression | A slope is built from variances and covariances |
+| [R2](r2-multiple.qmd) | Multiple regression | What "holding the other predictors constant" means |
+| [R3](r3-inference.qmd) | Inference and model comparison | Testing whether a set of extra predictors improves a model |
+| [R4](r4-assumptions.qmd) | Assumptions and diagnostics | Checking residuals, outliers and influential cases |
+| [R5](r5-moderation.qmd) | Moderation and categorical predictors | Whether an effect depends on another variable or differs between groups |
+| [R6](r6-mediation.qmd) | Mediation and causal thinking | Indirect effects, the bootstrap, and what a model can and cannot show about causes |
+
+The block ends with a [readiness checklist](readiness.qmd). After it, [Week 0](../sem/week-00.qmd) of the SEM block refits these same regressions in Amos.
+
+Every week also draws its model as a **path diagram**, the way Amos draws models: rectangles for measured variables, circles for error terms, single-headed arrows for regression paths and curved two-headed arrows for correlations. [R1](r1-covariance.qmd) explains the conventions. By the time you reach SEM, the diagrams will already be familiar.
+
+Use one practice dataset for all six weeks, so you are learning ideas rather than new variables each time. The [Student Life Survey](../course/dataset.qmd) is designed for this.

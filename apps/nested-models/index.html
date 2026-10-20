@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nested regression models · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../regression/r3-inference.html" data-book-link>R3: Inference and model comparison</a></p>
+    <h1>Nested regression models</h1>
+    <p class="lead">A hierarchical regression compares two models. Model 1 contains the control variables C1 and C2. Model 2 contains the same controls plus two new predictors, X1 and X2. Model 1 is <em>nested</em> in Model 2: it is Model 2 with the paths from X1 and X2 fixed at zero. The F test for the change in R² asks whether the new predictors add anything.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Population</h2>
+      <p class="small">The effects are standardised. Each sample is drawn from this population and both models are fitted to it.</p>
+      <div id="controls"></div>
+      <div class="btn-row" id="buttons"></div>
+    </div>
+    <div class="stack">
+      <div class="layout" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))">
+        <figure class="chart"><div id="d1" class="diagram-box"></div><figcaption><strong>Model 1</strong>: controls only.</figcaption></figure>
+        <figure class="chart"><div id="d2" class="diagram-box"></div><figcaption><strong>Model 2</strong>: controls plus X1 and X2 (highlighted).</figcaption></figure>
+      </div>
+      <p class="small">Arrow labels are the estimated unstandardised coefficients (b) in this sample. To keep the diagrams readable, the curved arrows for the correlations among the predictors are not drawn.</p>
+      <section class="panel" aria-labelledby="sum-h">
+        <h2 id="sum-h">Model summary</h2>
+        <div id="summary"></div>
+        <p id="verdict"></p>
+      </section>
+      <figure class="chart">
+        <div id="r2chart"></div>
+        <figcaption>R² for each model. The extra part of Model 2's bar is ΔR², the variance explained by X1 and X2 over and above the controls.</figcaption>
+      </figure>
+      <details id="f-details">
+        <summary>Where the p-value comes from: the F distribution</summary>
+      <figure class="chart">
+        <div id="fchart"></div>
+        <figcaption>The F distribution if X1 and X2 added nothing in the population. The shaded tail beyond the observed F is the p-value.</figcaption>
+      </figure>
+      </details>
+      <details>
+        <summary>Coefficients for both models</summary>
+        <div id="coefs"></div>
+      </details>
+      <details>
+        <summary>Use your own SPSS results</summary>
+        <p>Enter the R² values from the Model Summary table of a hierarchical regression to get the F test for the change.</p>
+        <div id="calc"></div>
+        <div id="calc-out" role="status"></div>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Set the effects of X1 and X2 to zero and draw several new samples. How often is the F change significant? What should happen in the long run?</li>
+      <li>Keep the effects of X1 and X2 small and increase N. Why does the same small ΔR² become significant?</li>
+      <li>Increase the correlation among the predictors. What happens to ΔR², even though the effects of X1 and X2 have not changed? Link this to unique and shared variance from R2.</li>
+      <li>Compare the coefficients of C1 and C2 in Model 1 and Model 2. Why do they change when X1 and X2 are added?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Data are simulated.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

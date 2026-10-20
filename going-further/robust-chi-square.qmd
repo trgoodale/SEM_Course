@@ -1,0 +1,38 @@
+# Non-normal data: Satorra–Bentler and Bollen–Stine {.unnumbered}
+
+*First raised in [Week 8](../sem/week-08.qmd). Optional.*
+
+## The problem
+
+Maximum likelihood assumes multivariate normality. The parameter estimates are fairly robust when it fails, but two things are not:
+
+- **χ²** tends to be too large when the data have heavy tails (positive kurtosis), so correct models are rejected too often;
+- **standard errors** tend to be too small, so effects look more significant than they are.
+
+Skew matters less than kurtosis for these problems. Check Amos's **Assessment of normality** table: the last row gives Mardia's multivariate kurtosis and its critical ratio, which is Mardia's normalised estimate. Following Bentler, @byrne2016 [p. 123] treats a value above 5 as a sign of multivariate non-normality; for single items she uses a kurtosis of 7 or more as a sign of a problem.
+
+## Two fixes
+
+**Satorra–Bentler scaled χ² and robust standard errors.** The χ² is divided by a scaling factor estimated from the kurtosis of the data, and the standard errors are corrected in a similar way. This is what lavaan (estimator "MLM" or "MLR"), Mplus and EQS offer. **Amos does not provide it.** Byrne's chapter 4 compares her Amos results with a Satorra–Bentler analysis run in EQS (p. 145).
+
+**Bollen–Stine bootstrap** [@bollen1992]. Ordinary bootstrapping of χ² would be wrong, because the sample does not come from a population where the model is true. Bollen and Stine first transform the data so that the model fits them exactly, then resample from the transformed data. The resulting distribution of χ² is what you would expect *if the model were correct*, and the Bollen–Stine p value is the proportion of bootstrap χ² values at least as large as the one you observed. In Amos: Analysis Properties › Bootstrap › Bollen–Stine bootstrap.
+
+For standard errors and confidence intervals of parameters, Amos's ordinary (naive) bootstrap is the usual alternative to robust standard errors. Remember to change its confidence level from the default of 90 to 95.
+
+## What to report
+
+- The multivariate kurtosis, and what you did about it.
+- The ML χ² **and** the Bollen–Stine p value (or, in other software, the scaled χ²).
+- Bootstrap confidence intervals for key parameters.
+
+Both bootstrap procedures need complete data in Amos.
+
+## Why it matters later
+
+Likert items are never truly normal. [Week 10](../sem/week-10.qmd) asks when to treat them as continuous at all; the bootstrap is also how indirect effects are tested ([Week 11](../sem/week-11.qmd)).
+
+## Reading
+
+- @byrne2016, chapter 12.
+- @bollen1992.
+- @curran1996, on how non-normality affects χ² and standard errors.

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Identification and degrees of freedom · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-01.html" data-book-link>SEM Week 1</a> · <a href="../../sem/week-02.html" data-book-link>Week 2</a> · <a href="../../sem/week-07.html" data-book-link>Week 7</a></p>
+    <h1>Identification and degrees of freedom</h1>
+    <p class="lead">A model can be estimated only if it has no more free parameters than the data provide. Build a model, count the knowns and the unknowns, and check the identification rules that apply.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout wide-controls">
+    <div class="panel">
+      <h2>Model</h2>
+      <div id="type"></div>
+      <div id="cfa-controls"></div>
+      <div id="path-controls" hidden></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="res-h">
+        <h2 id="res-h">Counting</h2>
+        <div id="stats"></div>
+        <div id="status"></div>
+        <div id="params"></div>
+        <div id="warnings"></div>
+      </section>
+      <figure class="chart" id="diagram-fig">
+        <div id="diagram" class="chart-wrap" tabindex="0" role="region" aria-label="Path diagram (scrolls sideways on small screens)"></div>
+        <figcaption id="diagram-cap">Path diagram. Ovals are latent factors, rectangles observed indicators, small circles error terms. A 1 on an arrow marks a parameter fixed to set the scale.</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Why must every latent variable have its scale set, and what are the two common ways of doing it in Amos?</li>
+      <li>Count the knowns and unknowns for a one-factor model with three indicators. Why can its fit not be tested?</li>
+      <li>A second-order model with three first-order factors fits exactly as well as the model with three correlated first-order factors. Use the df to explain why.</li>
+      <li>The t-rule (df ≥ 0) is necessary but not sufficient. Give an example from this app of a model that passes the t-rule but is still not identified.</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Counts assume a covariance-structure model without means, as in Byrne's single-group applications.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

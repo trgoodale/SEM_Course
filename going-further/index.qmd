@@ -1,0 +1,18 @@
+# Going further {.unnumbered}
+
+These short pages explain ideas that the weekly pages only mention. Each one is optional. Read a page when a week links to it and you want to know more, or when the idea comes up in your own analysis.
+
+Every page has the same shape: what the idea is, why it happens, a worked example (usually from the [Student Life Survey](../course/dataset.qmd)), where it comes up in the course, and one or two readings.
+
+| Page | First raised in |
+|:--|:--|
+| [Suppression](suppression.qmd) | [R2](../regression/r2-multiple.qmd) |
+| [Centring: what it changes and what it doesn't](centring.qmd) | [R5](../regression/r5-moderation.qmd) |
+| [Johnson–Neyman regions of significance](johnson-neyman.qmd) | [R5](../regression/r5-moderation.qmd) |
+| [Equivalent models](equivalent-models.qmd) | [Week 4](../sem/week-04.qmd), [Week 11](../sem/week-11.qmd) |
+| [Heywood cases: negative variances](heywood.qmd) | [Week 4](../sem/week-04.qmd) |
+| [Discriminant validity: HTMT and Fornell–Larcker](htmt-fornell-larcker.qmd) | [Week 6](../sem/week-06.qmd) |
+| [Non-normal data: Satorra–Bentler and Bollen–Stine](robust-chi-square.qmd) | [Week 8](../sem/week-08.qmd) |
+| [FIML and auxiliary variables](fiml-auxiliary.qmd) | [Week 9](../sem/week-09.qmd) |
+| [Partial invariance: which parameter to free](partial-invariance.qmd) | [Week 13](../sem/week-13.qmd) |
+| [Common method variance](common-method-variance.qmd) | [MTMM](../sem/optional-mtmm.qmd), [Week 17](../sem/week-17.qmd) |

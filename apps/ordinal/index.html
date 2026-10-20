@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ordinal items and thresholds · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/week-10.html" data-book-link>SEM Week 10</a></p>
+    <h1>Ordinal items and thresholds</h1>
+    <p class="lead">Likert-type items can be seen as cut-up versions of continuous latent responses. Set the true (latent) correlation between two items, choose the number of response categories and where the thresholds fall, and compare the Pearson correlation of the observed scores with the polychoric correlation.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>Settings</h2>
+      <div id="controls"></div>
+      <div class="btn-row" id="buttons"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="res-h">
+        <h2 id="res-h">Correlations</h2>
+        <div id="stats"></div>
+        <p id="summary"></p>
+      </section>
+      <figure class="chart">
+        <div id="latent"></div>
+        <figcaption>The latent response distribution of item 1 and the thresholds that cut it into response categories. Shaded areas are the response categories; dashed lines are the thresholds.</figcaption>
+      </figure>
+      <figure class="chart">
+        <div id="bycat"></div>
+        <div id="bycat-legend"></div>
+        <figcaption>Population Pearson correlation of the observed category scores for 2 to 7 categories, with the latent (polychoric) correlation for comparison.</figcaption>
+      </figure>
+      <details>
+        <summary>Cross-tabulation of the two items (population proportions)</summary>
+        <div id="crosstab"></div>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>With symmetric thresholds, how many categories do you need before the Pearson correlation is within .05 of the latent correlation?</li>
+      <li>What happens to the Pearson correlation when the two items are skewed in opposite directions? Why?</li>
+      <li>Rhemtulla et al. (2012) suggest that items with five or more categories can often be treated as continuous. Does this app support that, and when might it not hold?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Population values are computed exactly from the bivariate normal distribution; sample values are simulated.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

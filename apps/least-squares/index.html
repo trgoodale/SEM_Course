@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Least-squares line · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../regression/r1-covariance.html" data-book-link>R1: Covariance and simple regression</a></p>
+    <h1>Least-squares line</h1>
+    <p class="lead">Fit a line by eye, then compare it with the least-squares line. The least-squares line is the one with the smallest sum of squared residuals (SSE).</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel" id="controls">
+      <h2>Your line</h2>
+      <div id="line-controls"></div>
+      <p class="small">On a touch screen or with a mouse you can also drag the two round handles on your line.</p>
+      <fieldset>
+        <legend>Show</legend>
+        <div id="show-controls"></div>
+      </fieldset>
+      <fieldset>
+        <legend>Data</legend>
+        <div class="btn-row" id="data-buttons"></div>
+        <div id="point-controls"></div>
+      </fieldset>
+    </div>
+
+    <div class="stack">
+      <section class="panel" aria-labelledby="res-h">
+        <h2 id="res-h">How good is your line?</h2>
+        <div id="stats"></div>
+        <p id="verdict"></p>
+      </section>
+      <figure class="chart">
+        <div id="chart" class="chart-wrap" style="touch-action:none"></div>
+        <div id="legend"></div>
+        <figcaption>Points are the data. Vertical segments are residuals: the distance from each point to your line.</figcaption>
+      </figure>
+      <details>
+        <summary>Least-squares solution</summary>
+        <div id="ls-detail"></div>
+      </details>
+      <details>
+        <summary>Data table</summary>
+        <div id="data-table"></div>
+      </details>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Why does the least-squares line square the residuals rather than add them up as they are?</li>
+      <li>Add an outlier far from the other points. How much does the least-squares slope move, and why does a single point have so much influence?</li>
+      <li>The slope equals the covariance of x and y divided by the variance of x. What does this tell you about the information a regression needs from the data?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Data are simulated.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

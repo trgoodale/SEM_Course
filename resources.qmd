@@ -1,0 +1,45 @@
+# Resources {.unnumbered}
+
+These are useful throughout the course rather than in a particular week. Full references are on the [References](references.qmd) page.
+
+## Books
+
+**SEM**
+
+- @byrne2016: the course text. Its data files are on the [Routledge page](https://www.routledge.com/9781138797031).
+- @kline2023: the conceptual companion to Byrne; read it when you want to know *why*.
+- @brown2015: depth on CFA, useful for Weeks 3–7 and 10–11.
+- @collier2020: an alternative Amos walkthrough, stronger on mediation and moderation.
+- @enders2022: the reference for missing data (Week 16).
+
+**Regression**
+
+- @field2024: the SPSS-based text used for the regression block.
+- @darlington2017: more conceptual; strong on partial effects and model comparison.
+- @cohen2003: the classic reference for psychologists.
+- @hayes2022: mediation, moderation and the PROCESS macro.
+
+## Free texts
+
+- @gelman2020, *Regression and Other Stories*. The authors provide a [free PDF](https://users.aalto.fi/~ave/ROS.pdf). The examples use R, but the chapters on fitting and interpreting regression read well without the code.
+- Danielle Navarro's *Learning Statistics with R* is free online and has a clear regression chapter.
+- *OpenIntro Statistics* is free and useful if basic inference needs a refresh.
+
+## Websites and tools
+
+- [Gaskination StatWiki](https://statwiki.gaskination.com/): step-by-step guides for data screening, EFA, CFA and causal models in SPSS and Amos, with example datasets, the Stats Tools Package (Excel) and Amos plugins. Its author describes it as mechanically oriented, so pair it with Kline.
+- David Kenny's [SEM pages](https://davidakenny.net/cm/causalm.htm): short, authoritative notes on identification, fit, respecification and mediation.
+- Preacher and Coffman's [RMSEA power calculator](https://www.quantpsy.org/rmsea/rmsea.htm): for planning sample size.
+- The IBM *Amos User's Guide*: free from IBM's documentation site, with worked examples and data.
+- The PROCESS macro for SPSS: download and documentation at processmacro.org.
+
+## Video
+
+- James Gaskin's [Gaskination YouTube channel](http://www.youtube.com/Gaskination): the largest library of Amos videos, including an SEM series whose dataset is on StatWiki.
+- Mike Crowson's YouTube channel: slower, more explanatory Amos walkthroughs.
+- Curran-Bauer Analytics: free conceptual videos on SEM and growth models.
+- Andy Field's YouTube channel and StatQuest (Josh Starmer): for the regression block.
+
+## Beyond Amos
+
+The R package lavaan [@rosseel2012] and the SEM module in JASP are free. Reviewers increasingly expect analyses that others can reproduce, and reproducing one of Byrne's models in lavaan (suggested in [Week 12](sem/week-12.qmd)) is a good check that you understand the model rather than the menus.

@@ -1,0 +1,93 @@
+# Week 5: CFA of a measurement scale {.unnumbered}
+
+::: {.week-meta}
+Core reading
+: @byrne2016, chapter 4, pp. 115–148 (about 2 hours)
+
+Data
+: [Student Life Survey](../course/dataset.qmd), clean file: your Week 4 CFA ([diagram](week-03.qmd#the-model-as-a-path-diagram))
+
+App
+: Residuals and modification indices
+
+Task style
+: Completion: reproduce, then make and justify a decision yourself
+
+:::
+
+## By the end of this week you can
+
+- Evaluate item-level fit using standardised loadings and squared multiple correlations.
+- Judge an error covariance or cross-loading by the content of the items.
+- Check multivariate normality with Mardia's coefficient.
+- Write a justification for each change to a measurement model.
+
+## Warm-up
+
+Answer from memory at the start of the session. It takes two minutes and makes earlier ideas easier to recall later.
+
+1. Where in the Amos output do you find the degrees of freedom? (Week 2)
+2. Why do changes based only on MIs often fail to replicate?
+
+<details class="answers">
+<summary>Check your answers</summary>
+
+1. Notes for Model, under "Computation of degrees of freedom".
+2. They capitalise on chance features of the sample.
+
+</details>
+
+## This week in brief
+
+Byrne's chapter 4 tests the factor structure of a published scale and meets the problems real scales raise: weak or misfitting items, correlated errors between similarly worded items, and non-normal data. This week you make those decisions yourself for the Student Life Survey.
+
+## In the session
+
+- Item-level evidence: loadings, squared multiple correlations, residuals.
+- When an error covariance or a cross-loading is defensible, and how negative wording can create both.
+- Multivariate normality: Mardia's coefficient in Amos ("Tests for normality and outliers").
+
+## After the session
+
+Read the core reading, noting each decision Byrne makes and her reason for it.
+
+## Your task this week
+
+1. Reproduce Byrne's chapter 4 analyses.
+2. In your Student Life CFA, list each item's standardised loading and squared multiple correlation. Which item is weakest? Read its wording: why might it behave differently?
+3. Request "Tests for normality and outliers" and note Mardia's multivariate kurtosis and its critical ratio.
+4. **Decide** on your final measurement model. For each change from Week 3, write one sentence of justification. Report the fit of the final model.
+
+## Interactive app
+
+Use the app again if you want to rehearse the decisions before making them with real data.
+
+```{=html}
+<figure class="app-embed">
+  <iframe data-app src="../apps/modification-indices/index.html" title="Residuals and modification indices (interactive app)" loading="lazy"></iframe>
+  <figcaption><a href="../apps/modification-indices/index.html">Open the Residuals and modification indices on its own page</a> for more space.</figcaption>
+</figure>
+```
+
+## For your SEM log
+
+Write your answers in your log first; then compare.
+
+1. Which item was weakest, and why might it be?
+2. When is an error covariance defensible?
+3. What does a large Mardia coefficient imply for ML estimation?
+
+<details class="answers model">
+<summary>Compare with model answers (after writing your own)</summary>
+
+1. Look for an item whose wording differs from the rest: a negatively worded item often has a lower loading and can pick up variance from a related construct (here, stress), because agreeing that "things are getting on top of me" is partly about stress, not only low wellbeing.
+2. When there is a substantive reason the two items share something beyond the factor, such as overlapping wording or content. It should be stated in advance or clearly justified, and it should be rare.
+3. Multivariate kurtosis: χ² tends to be too large and standard errors too small. Consider bootstrapping (Week 8).
+
+</details>
+
+## Extra resources
+
+Optional. Each is labelled with when it is worth reading.
+
+- **For depth:** @brown2015, the chapters on CFA respecification and on non-normal data.

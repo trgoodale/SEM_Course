@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multitrait–multimethod matrix explorer · SEM with Amos apps</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="../shared/app.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to the app</a>
+<main id="main" class="app">
+  <header class="app-header">
+    <p class="small standalone-only"><a href="../../apps.html" data-book-link>All apps</a> · Used in <a href="../../sem/optional-mtmm.html" data-book-link>Optional topic: MTMM</a></p>
+    <h1>Multitrait–multimethod matrix explorer</h1>
+    <p class="lead">Three traits are each measured by three methods. Set how strongly measures reflect their trait and their method, and see the resulting MTMM matrix with Campbell and Fiske's (1959) checks applied.</p>
+  </header>
+  <div id="guide"></div>
+
+  <div class="layout">
+    <div class="panel">
+      <h2>What drives the measures</h2>
+      <div id="controls"></div>
+      <div class="btn-row" id="buttons"></div>
+    </div>
+    <div class="stack">
+      <section class="panel" aria-labelledby="mat-h">
+        <h2 id="mat-h">The MTMM correlation matrix</h2>
+        <div id="key"></div>
+        <div id="matrix"></div>
+      </section>
+      <section class="panel" aria-labelledby="cf-h">
+        <h2 id="cf-h">Campbell–Fiske criteria</h2>
+        <div id="checks"></div>
+      </section>
+    </div>
+  </div>
+
+  <section class="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Questions for your SEM log</h2>
+    <ol>
+      <li>Raise the method loading. Which blocks of the matrix change, and which Campbell–Fiske criterion fails first?</li>
+      <li>What pattern would you expect if the traits were not distinct (trait correlation near 1)?</li>
+      <li>How does a CFA model of the MTMM matrix (Byrne, chapter 10) improve on reading the matrix by eye?</li>
+      <li>Common method variance (Podsakoff et al., 2003) is a version of the method effect shown here. How might it affect a study that uses only self-report questionnaires?</li>
+    </ol>
+  </section>
+  <p class="app-footer">Part of the <a href="../../index.html" data-book-link>SEM with Amos study guide</a>. Measures are labelled by method then trait (for example M1T2 = method 1, trait 2). Reliabilities on the diagonal are illustrative.</p>
+</main>
+<div id="live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+<script src="../shared/stats.js"></script>
+<script src="../shared/chart.js"></script>
+<script src="../shared/diagram.js"></script>
+<script src="../shared/ui.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

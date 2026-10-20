@@ -1,0 +1,53 @@
+# Centring: what it changes and what it doesn't {.unnumbered}
+
+*First raised in [R5](../regression/r5-moderation.qmd). Optional.*
+
+## What it is
+
+**Centring** a variable means subtracting its mean, so that 0 stands for an average case. In a model with an interaction (X, W and X × W), centring X and W changes some numbers and leaves others exactly as they were.
+
+## Why it happens
+
+In a model with an interaction, the coefficient of X is the effect of X **when W = 0**, and the coefficient of W is the effect of W when X = 0. If 0 is not a meaningful value (stress and support are both scored 1 to 5, so neither can be 0), those coefficients describe an impossible person. Centring moves 0 to the average, so they describe the effect at the average of the other variable. The interaction coefficient, its test and R² do not depend on where 0 is, so they do not change.
+
+## A worked example
+
+Wellbeing on stress, support and their product in the Student Life Survey (N = 520):
+
+| Coefficient | Raw scores | Centred scores |
+|:--|--:|--:|
+| Stress | −0.85 (SE 0.16) | −0.46 (SE 0.04) |
+| Support | −0.12 (SE 0.13) | 0.19 (SE 0.04) |
+| Stress × support | 0.103 (SE 0.041) | 0.103 (SE 0.041) |
+| R² | .307 | .307 |
+
+With raw scores, support appears to have a small *negative*, non-significant effect: that is its effect for a student with zero stress, who cannot exist. Centred, support has a clear positive effect for a student with average stress. The interaction is identical in both.
+
+
+::: {.callout-tip title="Try it"}
+The interaction plotter below opens at its centring step. The coefficient table shows the raw and centred fits side by side; move the mean of W away from 0 and see which numbers change.
+
+```{=html}
+<details class="try-app">
+  <summary>Try it here: Interaction plotter</summary>
+  <figure class="app-embed">
+    <iframe data-app src="../apps/interaction/index.html?step=2" title="Interaction plotter (interactive app)" loading="lazy"></iframe>
+    <figcaption><a href="../apps/interaction/index.html?step=2">Open the interaction plotter on its own page</a> for more space.</figcaption>
+  </figure>
+</details>
+```
+:::
+
+## The collinearity myth
+
+Centring is often recommended to "reduce multicollinearity". The correlation between stress and the product term does fall, from .69 with raw scores to .02 after centring. But this collinearity was **non-essential**: it came only from where 0 was, and it never affected the interaction test. Centring makes the lower-order coefficients easier to interpret; it does not fix a statistical problem [@aiken1991].
+
+## Why it matters later
+
+- Choosing where time = 0 in a growth model is the same decision: it changes what the intercept means, not the fit. See the [optional growth topic](../sem/optional-growth.qmd) and its app.
+- In multigroup models, the "average" person differs between groups, so say which mean you centred on.
+
+## Reading
+
+- @aiken1991, the chapter on the effects of predictor scaling.
+- @hayes2022, the chapters on moderation.
